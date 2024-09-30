@@ -1,0 +1,61 @@
+﻿@page "/nuevomodopago"
+
+
+@inject NavigationManager NavigationManager
+@inject IGenericService<ModoPago> modopagoService
+
+
+<h1> Nuevo Modo de pago</h1>
+
+@if (modopago == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3 >Cargando nuevo modo de pago... @modopago.nombre</h3>
+    <EditForm Model="modopago" OnValidSubmit="GuardarModoPago">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtModoPago">Modo de pago:</label>
+        <input class="form-control mb-3" type="text" placeholder=" modo de pago" @bind="modopago.nombre" />
+        <input class="form-control mb-3" type="text" placeholder="ajuste" @bind="modopago.ajusteF" />
+        
+      
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+}
+
+
+@code {
+
+    public string? idModoPago { get; set; }
+
+    public ModoPago? modopago { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        modopago = new ModoPago();
+    }
+
+   
+
+    // guarda información del formulario editar
+    private async Task GuardarModoPago()
+    {
+        var response = await modopagoService.AddAsync(modopago);
+        NavigationManager.NavigateTo("/modospagos");
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/modospagos"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+
+}
+
+  

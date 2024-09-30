@@ -1,0 +1,21 @@
+h1{
+    color:tomato;
+    border-bottom: 2px solid tomato;
+}
+
+p{
+    color:darkmagenta;
+    font-size: x-large;
+}
+
+.contenedor-tabla{
+    display: flex;
+    align-content:center;
+    background-color:bisque;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top:15px;
+  
+}
+
+

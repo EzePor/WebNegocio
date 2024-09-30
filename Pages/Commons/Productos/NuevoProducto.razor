@@ -1,0 +1,63 @@
+﻿@page "/nuevoproducto"
+
+
+@inject NavigationManager NavigationManager
+@inject IGenericService<Producto> productoService
+@inject GenericService<Producto> productoService
+
+
+<h1> Nuevo Producto</h1>
+
+@if (producto == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3 >Cargando nuevo producto/a @producto.nombre</h3>
+    <EditForm Model="producto" OnValidSubmit="GuardarProducto">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtProducto">Productos:</label>
+        <input class="form-control mb-3" type="text" placeholder=" Nombre" @bind="producto.nombre" />
+        <input class="form-control mb-3" type="text" placeholder="Rubro" @bind="producto.Rubro" />
+        <input class="form-control mb-3" type="text" placeholder="Precio" @bind="producto.precioF" />
+        <input class="form-control mb-3" type="text" placeholder="Stock" @bind="producto.stock" />
+      
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+}
+
+
+@code {
+
+    public string? idProducto { get; set; }
+
+    public Producto? producto { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        producto = new Producto();
+    }
+
+   
+
+    // guarda información del formulario editar
+    private async Task GuardarProducto()
+    {
+        var response = await productoService.AddAsync(producto);
+        NavigationManager.NavigateTo("/productos");
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/productos"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+
+}
+
+  

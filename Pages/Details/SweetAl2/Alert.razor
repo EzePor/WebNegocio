@@ -1,0 +1,19 @@
+﻿@page "/alert"
+
+@inject SweetAlertService sweetAlert
+
+<button @onclick="TestAlert">Probar Alerta</button>
+
+
+@code {
+    private async Task TestAlert()
+    {
+        await sweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Test",
+                Text = "Este es un mensaje de prueba",
+                Icon = SweetAlertIcon.Info,
+                ConfirmButtonText = "Aceptar"
+            });
+    }
+}

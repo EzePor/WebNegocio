@@ -1,0 +1,321 @@
+﻿@page "/duopedidos"
+@using Microsoft.Extensions.Logging
+@using System.Text.Json
+@using WebNegocio.Enums
+@using WebNegocio.Interfaces.Pedidos
+@using WebNegocio.Interfaces.resumenPedido
+@using WebNegocio.Pages.Commons.Impresiones
+@using WebNegocio.Pages.Commons.Productos
+@using WebNegocio.Models.Details
+
+@inject IGenericService<Pedido> pedidoService
+@inject IGenericService<Cliente> clienteService
+@inject IGenericService<Producto> productoService
+@inject IGenericService<Impresion> impresionService
+@inject IGenericService<ModoPago> modopagoService
+@inject IGenericService<DetalleProducto> detalleProductoService
+@inject IGenericService<DetalleImpresion> detalleImpresionService
+@inject IResumenPedidoService resumenPedidoService
+@inject ILogger<DuoPedidos> Logger
+@inject IPedidoService pedidoService
+
+
+
+
+<PageTitle>Gestión de Pedidos</PageTitle>
+
+<h1>Crear o Editar Pedido</h1>
+
+@if (clientes == null || productos == null || impresiones == null || modosPago == null || nuevoPedido == null)
+{
+    <p>Cargando datos...</p>
+}
+else
+{
+    <!-- Formulario del Pedido -->
+    <div class="row">
+        <!-- Sección Cliente -->
+        <div class="col-md-6">
+            <label for="cliente">Cliente</label>
+            <select class="form-control" @bind="nuevoPedido.ClienteId">
+                <option value="">Seleccionar Cliente</option>
+                @foreach (var cliente in clientes)
+                {
+                    <option value="@cliente.id">@cliente.apellidoNombre</option>
+                }
+            </select>
+        </div>
+
+        <!-- Sección Modo de Pago -->
+        <div class="col-md-6">
+            <label for="modoPago">Modo de Pago</label>
+            <select class="form-control" @bind="nuevoPedido.ModoPagoId">
+                <option value="">Seleccionar Modo de Pago</option>
+                @foreach (var modoPago in modosPago)
+                {
+                    <option value="@modoPago.id">@modoPago.nombre</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <!-- Fecha del Pedido -->
+        <div class="col-md-6">
+            <label for="fechaPedido">Fecha del Pedido</label>
+            <input class="form-control" type="date" @bind="nuevoPedido.fechaPedido" />
+        </div>
+
+        <!-- Estado del Pedido -->
+        <div class="col-md-6">
+            <label for="estadoPedido">Estado del Pedido</label>
+            <select class="form-control" @bind="nuevoPedido.estadoPedido">
+                @foreach (var estado in Enum.GetValues(typeof(EstadoPedidoEnum)).Cast<EstadoPedidoEnum>())
+                {
+                    <option value="@estado.ToString()">@estado</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <!-- Pago Realizado -->
+        <div class="col-md-6">
+            <label>Fue Pagado</label>
+            <input type="checkbox" @bind="nuevoPedido.FuePagado" />
+        </div>
+    </div>
+
+    <!-- Tabla Detalles de Productos e Impresiones -->
+    <h4>Detalles del Pedido</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Producto/Impresión</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Subtotal</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Detalles de Productos -->
+                @foreach (var detalleProducto in nuevoPedido.DetallesProducto)
+                {
+                    <tr>
+                        <td>@detalleProducto.producto?.nombre</td>
+                        <td>@detalleProducto.cantidad</td>
+                        <td>$ @detalleProducto.precioUnitario.ToString("F2")</td>
+                        <td>$ @detalleProducto.TotalF</td>
+                        <td>
+                            <button class="btn btn-danger" @onclick="() => EliminarDetalle(detalleProducto)">Eliminar</button>
+                        </td>
+                    </tr>
+                }
+                <!-- Detalles de Impresiones -->
+                @foreach (var detalleImpresion in nuevoPedido.DetallesImpresion)
+                {
+                    <tr>
+                        <td>@detalleImpresion.impresion?.tamanio</td>
+                        <td>@detalleImpresion.cantidad</td>
+                        <td>$ @detalleImpresion.precioUnitario.ToString("F2")</td>
+                        <td>$ @detalleImpresion.TotalF</td>
+                        <td>
+                            <button class="btn btn-danger" @onclick="() => EliminarDetalleImpresion(detalleImpresion)">Eliminar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección para Agregar Producto -->
+    <h4>Agregar Producto</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="producto">Producto</label>
+            <select class="form-control" @bind="productoSeleccionadoId">
+                <option value="">Seleccionar Producto</option>
+                @foreach (var producto in productos)
+                {
+                    <option value="@producto.id">@producto.nombre</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label>Cantidad</label>
+            <input class="form-control" type="number" @bind="cantidadProducto" />
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-primary mt-4" @onclick="AgregarProducto">Agregar Producto</button>
+        </div>
+    </div>
+
+    <!-- Sección para Agregar Impresión -->
+    <h4>Agregar Impresión</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="impresion">Impresión</label>
+            <select class="form-control" @bind="impresionSeleccionadaId">
+                <option value="">Seleccionar Impresión</option>
+                @foreach (var impresion in impresiones)
+                {
+                    <option value="@impresion.id">@impresion.tamanio</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label>Cantidad</label>
+            <input class="form-control" type="number" @bind="cantidadImpresion" />
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-primary mt-4" @onclick="AgregarImpresion">Agregar Impresión</button>
+        </div>
+    </div>
+
+    <!-- Mostrar el Total del Pedido -->
+    <div class="mt-3">
+        <h5>Total del Pedido: $ @nuevoPedido.TotalPedidoF</h5>
+    </div>
+
+    <!-- Botón Guardar Pedido -->
+    <div class="mt-3">
+        <button class="btn btn-success" @onclick="GuardarPedido">Guardar Pedido</button>
+    </div>
+}
+
+@code {
+    List<Cliente>? clientes;
+    List<Producto>? productos;
+    List<Impresion>? impresiones;
+    List<ModoPago>? modosPago;
+    List<DetalleProducto> detallesProducto = new List<DetalleProducto>();
+    List<DetalleImpresion> detalleImpresiones = new List<DetalleImpresion>();
+    List<Pedido>? pedidos;
+
+    Pedido nuevoPedido = new Pedido();
+    int productoSeleccionadoId;
+    int cantidadProducto;
+    int impresionSeleccionadaId;
+    int cantidadImpresion;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        clientes = await clienteService.GetAllAsync();
+        productos = await productoService.GetAllAsync();
+        impresiones = await impresionService.GetAllAsync();
+        modosPago = await modopagoService.GetAllAsync();
+    }
+
+    // Agregar Producto al Pedido
+    private void AgregarProducto()
+    {
+        var producto = productos?.FirstOrDefault(p => p.id == productoSeleccionadoId);
+        if (producto != null)
+        {
+            var detalleProducto = new DetalleProducto
+                {
+                    ProductoId = producto.id,
+                    cantidad = cantidadProducto,
+                    precioUnitario = producto.precio,
+                    producto = producto  // Asigna el producto completo aquí
+                };
+            nuevoPedido?.DetallesProducto?.Add(detalleProducto);
+        }
+        CalcularTotalPedido();
+    }
+
+
+    // Agregar Impresión al Pedido
+    private void AgregarImpresion()
+    {
+        var impresion = impresiones.FirstOrDefault(i => i.id == impresionSeleccionadaId);
+        if (impresion != null)
+        {
+            var detalleImpresion = new DetalleImpresion
+                {
+                    ImpresionId = impresion.id,
+                    cantidad = cantidadImpresion,
+                    precioUnitario = impresion.precioBase,
+                    impresion = impresion  // Asigna la impresión completa aquí
+                };
+            nuevoPedido?.DetallesImpresion?.Add(detalleImpresion);
+        }
+        CalcularTotalPedido();
+    }
+
+
+    // Eliminar Detalles
+    private void EliminarDetalle(DetalleProducto detalleProducto)
+    {
+        nuevoPedido.DetallesProducto.Remove(detalleProducto);
+        CalcularTotalPedido();
+    }
+
+    private void EliminarDetalleImpresion(DetalleImpresion detalleImpresion)
+    {
+        nuevoPedido.DetallesImpresion.Remove(detalleImpresion);
+        CalcularTotalPedido();
+    }
+
+    // Calcular Total del Pedido
+    private void CalcularTotalPedido()
+    { // Aquí calculas el total sumando los detalles del pedido e impresión.
+        decimal totalDetallesProducto = nuevoPedido.DetallesProducto.Sum(d => d.total);
+        decimal totalImpresiones = nuevoPedido.DetallesImpresion.Sum(d => d.total);
+
+        // TotalPedido se calcula automáticamente con la propiedad calculada en el modelo Pedido
+        decimal totalPedido = totalDetallesProducto + totalImpresiones;
+
+        // Puedes usar 'total' si necesitas mostrarlo o utilizarlo de alguna manera.
+        Console.WriteLine($"Total calculado: {totalPedido}");
+    }
+
+
+
+
+    // Guardar Pedido
+    private async Task GuardarPedido()
+    {
+        try
+        {
+            Console.WriteLine($"Detalles Producto: {JsonSerializer.Serialize(nuevoPedido.DetallesProducto)}");
+            Console.WriteLine($"Detalles Impresión: {JsonSerializer.Serialize(nuevoPedido.DetallesImpresion)}");
+            Console.WriteLine($"datos del pedido: {JsonSerializer.Serialize(nuevoPedido)}");
+            // Guarda el pedido utilizando el servicio genérico
+            var response = await pedidoService.AddAsync(nuevoPedido);
+
+
+            Console.WriteLine($"datos del pedido: {JsonSerializer.Serialize(nuevoPedido)}");
+
+
+
+
+
+
+
+
+            Console.WriteLine($"Pedido: {response}");
+
+            // Notificación de éxito
+            // Aquí puedes usar SweetAlert o algún mensaje de confirmación
+            Console.WriteLine("Pedido guardado exitosamente.");
+        }
+        catch (Exception ex)
+        {
+            // Manejo de errores
+            Console.WriteLine($"Error al guardar el pedido: {ex.Message}");
+        }
+
+        StateHasChanged();
+    }
+
+
+
+}

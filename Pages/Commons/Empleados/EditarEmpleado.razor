@@ -1,0 +1,70 @@
+﻿@page "/editarempleado"
+
+
+@inject GenericService<Empleado> empleadoService
+@inject NavigationManager NavigationManager
+@inject ILogger<EditarEmpleado> Logger;
+
+
+
+
+<h1> Editar Empleado: </h1>
+
+
+
+@if (empleado == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3>Editando al empleado: @empleado.apellidoNombre</h3>
+
+
+    <EditForm Model="empleado" OnValidSubmit="GuardarEmpleado">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtEmpleado">Empleado:</label>
+        <input class="form-control mb-3" type="text" @bind="empleado.apellidoNombre" />
+        <input class="form-control mb-3" type="text" @bind="empleado.dni" />
+      
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+
+
+}
+
+
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public string? idEmpleado { get; set; }
+
+    public Empleado? empleado { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        empleado = await empleadoService.GetByIdAsync(int.Parse(idEmpleado));
+    }
+
+
+
+    // guarda información del formulario editar
+    private async Task GuardarEmpleado()
+    {
+        Logger.LogInformation(empleado.ToString());
+        await empleadoService.UpdateAsync(empleado);
+        NavigationManager.NavigateTo("/empleados");
+
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/empleados"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+}

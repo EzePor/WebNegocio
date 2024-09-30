@@ -1,0 +1,71 @@
+﻿@page "/editarproducto"
+
+
+@inject GenericService<Producto> productoService
+@inject NavigationManager NavigationManager
+@inject ILogger<EditarProducto> Logger;
+
+
+
+
+<h1> Editar Producto</h1>
+
+
+
+@if (producto == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3>Editando Producto @producto.nombre</h3>
+
+
+    <EditForm Model="producto" OnValidSubmit="GuardarProducto">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtProducto">Producto:</label>
+        <input class="form-control mb-3" type="text" @bind="producto.nombre" />
+        <input class="form-control mb-3" type="text" @bind="producto.Rubro" />
+        <input class="form-control mb-3" type="text" @bind="producto.precioF" />
+        <input class="form-control mb-3" type="text" @bind="producto.stock" />
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+
+
+}
+
+
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public string? idProducto { get; set; }
+
+    public Producto? producto { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        producto = await productoService.GetByIdAsync(int.Parse(idProducto));
+    }
+
+
+
+    // guarda información del formulario editar
+    private async Task GuardarProducto()
+    {
+        Logger.LogInformation(producto.ToString());
+        await productoService.UpdateAsync(producto);
+        NavigationManager.NavigateTo("/productos");
+
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/productos"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+}

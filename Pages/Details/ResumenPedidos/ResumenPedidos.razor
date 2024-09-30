@@ -1,0 +1,102 @@
+﻿@page "/resumenpedidos"
+
+
+@inject GenericService<Pedido> pedidoService
+
+
+<h3>Resumen de Pedidos</h3>
+
+@if (pedidos == null)
+{
+    <p>Cargando pedidos...</p>
+}
+else if (pedidos.Count == 0)
+{
+    <p>No hay pedidos registrados.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID Pedido</th>
+                <th>Cliente ID</th>
+                <th>Fecha del Pedido</th>
+                <th>Total Productos</th>
+                <th>Total Impresiones</th>
+                <th>Total Pedido</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pedido in pedidos)
+            {
+                <tr>
+                    <td>@pedido.id</td>
+                    <td>@pedido.cliente.apellidoNombre</td>
+                    <td>@pedido.fechaPedido.ToShortDateString()</td>
+                    <td>$ @pedido.DetallesProducto.Sum(p => p.total).ToString("F2")</td>
+                    <td>$ @pedido.DetallesImpresion.Sum(i => i.total).ToString("F2")</td>
+                    <td>$ @pedido.TotalPedido.ToString("F2")</td>
+                    <td>@pedido.estadoPedido</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => ToggleDetalle(pedido.id)">
+                            Ver Detalles
+                        </button>
+                    </td>
+                </tr>
+
+                @if (mostrarDetalle == pedido.id)
+                {
+                    <tr>
+                        <td colspan="8">
+                            <div>
+                                <h5>Detalles del Pedido</h5>
+                                <ul>
+                                    <li><strong>Productos:</strong></li>
+                                    <ul>
+                                        @foreach (var producto in pedido.DetallesProducto)
+                                        {
+                                            <li>Producto ID: @producto.producto?.nombre - Cantidad: @producto.cantidad - Subtotal:$ @producto.TotalF</li>
+                                        }
+                                    </ul>
+                                    <li><strong>Impresiones:</strong></li>
+                                    <ul>
+                                        @foreach (var impresion in pedido.DetallesImpresion)
+                                        {
+                                            <li>Impresión ID: @impresion.impresion?.tamanio - Cantidad: @impresion.cantidad - Subtotal: @impresion.TotalF</li>
+                                        }
+                                    </ul>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Pedido> pedidos;
+    private int? mostrarDetalle = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Llamada al servicio para obtener los pedidos
+        pedidos = await pedidoService.GetAllAsync();
+    }
+
+    private void ToggleDetalle(int pedidoId)
+    {
+        if (mostrarDetalle == pedidoId)
+        {
+            mostrarDetalle = null;
+        }
+        else
+        {
+            mostrarDetalle = pedidoId;
+        }
+    }
+}

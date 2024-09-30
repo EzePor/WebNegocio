@@ -1,0 +1,101 @@
+﻿@page "/modospagos"
+
+
+
+@inject IGenericService<ModoPago> modopagoService
+@inject SweetAlertService SweetAlert
+
+
+<PageTitle>Modos de pago</PageTitle>
+
+
+<h1>Modos de pago</h1>
+
+
+@if (modospagos == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <NavLink class="nuevo" href="nuevomodopago">
+        Nuevo Modo de pago
+    </NavLink>
+    <div class="contenedor-tabla">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>AJUSTE</th>
+                    <th></th>
+                    <th></th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var modopago in modospagos)
+                {
+                    <tr>
+                        <td>@modopago.id</td>
+                        <td>@modopago.nombre</td>
+                        <td>$ @modopago.ajusteF</td>
+                        <td></td>
+                        <td></td>
+                     
+                        
+                        <td><NavLink class="editar" href=@($"editarmodopago?idModoPago={modopago.id}")>
+                            Editar
+                        </NavLink></td>
+                        
+                         <td>
+                           <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(modopago)">Eliminar<span class="oi oi-trash" ></span></button>
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+}
+
+
+
+@code {
+     private List<ModoPago>? modospagos;
+
+    protected override async Task OnInitializedAsync()
+    {
+       
+       modospagos = await modopagoService.GetAllAsync();
+    }
+
+
+    private async void Eliminar(ModoPago modopago)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando modopago",
+                Text = $"¿Está seguro/a que desea borrar  {modopago.nombre}",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si, quiero borrarlo!",
+                CancelButtonText = "No, espera"
+            });
+        if (respuesta.IsConfirmed)
+        {
+            await modopagoService.DeleteAsync(modopago.id);
+            modospagos = await modopagoService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+
+  
+}

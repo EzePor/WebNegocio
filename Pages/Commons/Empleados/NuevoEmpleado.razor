@@ -1,0 +1,61 @@
+﻿@page "/nuevoempleado"
+
+
+@inject NavigationManager NavigationManager
+@inject IGenericService<Empleado> empleadoService
+
+
+<h1> Nuevo Empleado</h1>
+
+@if (empleado == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3 >Cargando nuevo empleado... @empleado.apellidoNombre</h3>
+    <EditForm Model="empleado" OnValidSubmit="GuardarEmpleado">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtEmpleado">Empleado:</label>
+        <input class="form-control mb-3" type="text" placeholder=" nombre del empleado" @bind="empleado.apellidoNombre" />
+        <input class="form-control mb-3" type="text" placeholder="DNI" @bind="empleado.dni" />
+        
+      
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+}
+
+
+@code {
+
+    public string? idEmpleado { get; set; }
+
+    public Empleado? empleado { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        empleado = new Empleado();
+    }
+
+   
+
+    // guarda información del formulario editar
+    private async Task GuardarEmpleado()
+    {
+        var response = await empleadoService.AddAsync(empleado);
+        NavigationManager.NavigateTo("/empleados");
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/empleados"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+
+}
+
+  

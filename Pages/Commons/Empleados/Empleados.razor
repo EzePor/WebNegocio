@@ -1,0 +1,101 @@
+﻿@page "/empleados"
+
+
+
+@inject IGenericService<Empleado> empleadoService
+@inject SweetAlertService SweetAlert
+
+
+<PageTitle>Empleados</PageTitle>
+
+
+<h1>Empleados</h1>
+
+
+@if (empleados == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <NavLink class="nuevo" href="nuevoempleado">
+        Nuevo Empleado
+    </NavLink>
+    <div class="contenedor-tabla">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>APELLIDO Y NOMBRE</th>
+                    <th>DNI</th>
+                    <th></th>
+                    <th></th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var empleado in empleados)
+                {
+                    <tr>
+                        <td>@empleado.id</td>
+                        <td>@empleado.apellidoNombre</td>
+                        <td>@empleado.dni</td>
+                        <td></td>
+                        <td></td>
+                     
+                        
+                        <td><NavLink class="editar" href=@($"editarempleado?idEmpleado={empleado.id}")>
+                            Editar
+                        </NavLink></td>
+                        
+                         <td>
+                           <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(empleado)">Eliminar<span class="oi oi-trash" ></span></button>
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+}
+
+
+
+@code {
+     private List<Empleado>? empleados;
+
+    protected override async Task OnInitializedAsync()
+    {
+       
+       empleados = await empleadoService.GetAllAsync();
+    }
+
+
+    private async void Eliminar(Empleado empleado)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando empleado",
+                Text = $"¿Está seguro/a que desea borrar al empleafo {empleado.apellidoNombre}",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si, quiero borrarlo!",
+                CancelButtonText = "No, espera"
+            });
+        if (respuesta.IsConfirmed)
+        {
+            await empleadoService.DeleteAsync(empleado.id);
+            empleados = await empleadoService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+
+  
+}

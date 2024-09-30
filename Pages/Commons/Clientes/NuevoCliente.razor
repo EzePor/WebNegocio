@@ -1,0 +1,66 @@
+﻿@page "/nuevocliente"
+
+
+@inject NavigationManager NavigationManager
+@inject IGenericService<Cliente> clienteService
+
+
+<h1> Nuevo Cliente</h1>
+
+@if (cliente == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3 >Cargando nuevo cliente/a @cliente.apellidoNombre</h3>
+    <EditForm Model="cliente" OnValidSubmit="GuardarCliente">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtCliente">Cliente:</label>
+        <input class="form-control mb-3" type="text" placeholder="Apellido y Nombre" @bind="cliente.apellidoNombre" />
+        <input class="form-control mb-3" type="text" placeholder="Cuit/Dni" @bind="cliente.cuitDni" />
+        <input class="form-control mb-3" type="text" placeholder="Dirección" @bind="cliente.direccion" />
+        <input class="form-control mb-3" type="text" placeholder="Teléfono" @bind="cliente.telefono" />
+        <input class="form-control mb-3" type="text" placeholder="Email" @bind="cliente.email" />
+        <input class="form-control mb-3" type="text" placeholder="Localidad" @bind="cliente.Localidad" />
+        <input class="form-control mb-3" type="text" placeholder="Código Postal" @bind="cliente.CodigoPostal" />
+        <input class="form-control mb-3" type="text" placeholder="Provincia" @bind="cliente.Provincia" />
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+}
+
+
+@code {
+
+    public string? idCliente { get; set; }
+
+    public Cliente? cliente { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        cliente = new Cliente();
+    }
+
+   
+
+    // guarda información del formulario editar
+    private async Task GuardarCliente()
+    {
+        var response = await clienteService.AddAsync(cliente);
+        NavigationManager.NavigateTo("/clientes");
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/alumnos"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+
+}
+
+
+  

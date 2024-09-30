@@ -1,0 +1,61 @@
+﻿@page "/nuevaimpresion"
+
+
+@inject NavigationManager NavigationManager
+@inject IGenericService<Impresion> impresionService
+
+
+<h1> Nueva Impresión</h1>
+
+@if (impresion == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3 >Cargando nueva impresion @impresion.tamanio</h3>
+    <EditForm Model="impresion" OnValidSubmit="GuardarImpresion">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtImpresion">Impresiones:</label>
+        <input class="form-control mb-3" type="text" placeholder=" tamaño" @bind="impresion.tamanio" />
+        <input class="form-control mb-3" type="text" placeholder="precio" @bind="impresion.precioF" />
+        
+      
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+}
+
+
+@code {
+
+    public string? idImpresion { get; set; }
+
+    public Impresion? impresion { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        impresion = new Impresion();
+    }
+
+   
+
+    // guarda información del formulario editar
+    private async Task GuardarImpresion()
+    {
+        var response = await impresionService.AddAsync(impresion);
+        NavigationManager.NavigateTo("/impresiones");
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/impresiones"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+
+}
+
+  

@@ -1,0 +1,17 @@
+h1[b-g2uz6dk811]{
+    color:tomato;
+    border-bottom: 2px solid tomato;
+}
+
+p[b-g2uz6dk811]{
+    color:darkmagenta;
+    font-size: x-large;
+}
+
+.contenedor-tabla[b-g2uz6dk811] {
+    display: flex;
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+}

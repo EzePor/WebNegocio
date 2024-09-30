@@ -1,0 +1,127 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = WebNegocio
+build_property.RootNamespace = WebNegocio
+build_property.ProjectDir = E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-136tc4i9hy
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zp64rcn9qx
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Clientes/Clientes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xDbGllbnRlc1xDbGllbnRlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ikcb6ciiaj
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Clientes/EditarCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xDbGllbnRlc1xFZGl0YXJDbGllbnRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-uirv2wi5f0
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Clientes/NuevoCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xDbGllbnRlc1xOdWV2b0NsaWVudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-g2uz6dk811
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Empleados/EditarEmpleado.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xFbXBsZWFkb3NcRWRpdGFyRW1wbGVhZG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-m9yi7u75ti
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Empleados/Empleados.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xFbXBsZWFkb3NcRW1wbGVhZG9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-3fxjacnfnl
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Empleados/NuevoEmpleado.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xFbXBsZWFkb3NcTnVldm9FbXBsZWFkby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-jfpi0q4cct
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Impresiones/EditarImpresion.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xJbXByZXNpb25lc1xFZGl0YXJJbXByZXNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-gucph5vx56
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Impresiones/Impresiones.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xJbXByZXNpb25lc1xJbXByZXNpb25lcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-9pba9b8w84
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Impresiones/NuevaImpresion.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xJbXByZXNpb25lc1xOdWV2YUltcHJlc2lvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5vyov1zohq
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/ModosPagos/EditarModoPago.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xNb2Rvc1BhZ29zXEVkaXRhck1vZG9QYWdvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-8kyyvh0a6c
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/ModosPagos/ModosPagos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xNb2Rvc1BhZ29zXE1vZG9zUGFnb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-kfvi4lgrm1
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/ModosPagos/NuevoModoPago.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xNb2Rvc1BhZ29zXE51ZXZvTW9kb1BhZ28ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-b1endoydpm
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Productos/EditarProducto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xQcm9kdWN0b3NcRWRpdGFyUHJvZHVjdG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-e6cirvd6m8
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Productos/NuevoProducto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xQcm9kdWN0b3NcTnVldm9Qcm9kdWN0by5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-t0nkh2zqo9
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Productos/Productos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xQcm9kdWN0b3NcUHJvZHVjdG9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ii3y782yvk
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/CrearPedidos/CrearPedidos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xDcmVhclBlZGlkb3NcQ3JlYXJQZWRpZG9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-le78m9prkx
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/DuoPedidos/DuoPedidos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xEdW9QZWRpZG9zXER1b1BlZGlkb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-239xillw9n
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/ResumenPedidos/ResumenPedidos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xSZXN1bWVuUGVkaWRvc1xSZXN1bWVuUGVkaWRvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5ac8hdikce
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/SweetAl2/Alert.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xTd2VldEFsMlxBbGVydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-o5h2hcp6ge

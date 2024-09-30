@@ -1,0 +1,74 @@
+﻿@page "/editarcliente"
+
+
+@inject IGenericService<Cliente> clienteService
+@inject NavigationManager NavigationManager
+@inject ILogger<EditarCliente> Logger;
+
+
+
+<h1> Editar Cliente</h1>
+
+
+
+@if (cliente == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3>Editando Cliente @cliente.apellidoNombre</h3>
+
+
+    <EditForm Model="cliente" OnValidSubmit="GuardarCliente">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtCliente">Cliente:</label>
+        <input class="form-control mb-3" type="text" @bind="cliente.apellidoNombre" />
+        <input class="form-control mb-3" type="text" @bind="cliente.cuitDni" />
+        <input class="form-control mb-3" type="text" @bind="cliente.direccion" />
+        <input class="form-control mb-3" type="text" @bind="cliente.telefono" />
+        <input class="form-control mb-3" type="text" @bind="cliente.email" />
+        <input class="form-control mb-3" type="text" @bind="cliente.Localidad" />
+        <input class="form-control mb-3" type="text" @bind="cliente.CodigoPostal" />
+        <input class="form-control mb-3" type="text" @bind="cliente.Provincia" />
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+
+
+}
+
+
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public string? idCliente { get; set; }
+
+    public Cliente? cliente { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        cliente = await clienteService.GetByIdAsync(int.Parse(idCliente));
+    }
+
+
+
+    // guarda información del formulario editar
+    private async Task GuardarCliente()
+    {
+        Logger.LogInformation(cliente.ToString());
+        await clienteService.UpdateAsync(cliente);
+        NavigationManager.NavigateTo("/clientes");
+
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/clientes"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+}

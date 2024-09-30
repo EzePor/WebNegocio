@@ -1,0 +1,70 @@
+﻿@page "/editarmodopago"
+
+
+@inject GenericService<ModoPago> modopagoService
+@inject NavigationManager NavigationManager
+@inject ILogger<EditarModoPago> Logger;
+
+
+
+
+<h1> Editar Modo de pago</h1>
+
+
+
+@if (modopago == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3>Editando Modo de Pago: @modopago.nombre</h3>
+
+
+    <EditForm Model="modopago" OnValidSubmit="GuardarModoPago">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtModoPago">Modo de pago:</label>
+        <input class="form-control mb-3" type="text" @bind="modopago.nombre" />
+        <input class="form-control mb-3" type="text" @bind="modopago.ajusteF" />
+      
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+
+
+}
+
+
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public string? idModoPago { get; set; }
+
+    public ModoPago? modopago { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        modopago = await modopagoService.GetByIdAsync(int.Parse(idModoPago));
+    }
+
+
+
+    // guarda información del formulario editar
+    private async Task GuardarModoPago()
+    {
+        Logger.LogInformation(modopago.ToString());
+        await modopagoService.UpdateAsync(modopago);
+        NavigationManager.NavigateTo("/modospagos");
+
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/modospagos"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+}

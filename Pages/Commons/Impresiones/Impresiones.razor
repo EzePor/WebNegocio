@@ -1,0 +1,101 @@
+﻿@page "/impresiones"
+
+
+
+@inject IGenericService<Impresion> impresionService
+@inject SweetAlertService SweetAlert
+
+
+<PageTitle>Impresiones</PageTitle>
+
+
+<h1>Impresiones</h1>
+
+
+@if (impresiones == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <NavLink class="nuevo" href="nuevaimpresion">
+        Nueva Impresion
+    </NavLink>
+    <div class="contenedor-tabla">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TAMAÑO</th>
+                    <th>PRECIO</th>
+                    <th></th>
+                    <th></th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var impresion in impresiones)
+                {
+                    <tr>
+                        <td>@impresion.id</td>
+                        <td>@impresion.tamanio</td>
+                        <td>$ @impresion.precioBase.ToString("F2")</td>
+                        <td></td>
+                        <td></td>
+                     
+                        
+                        <td><NavLink class="editar" href=@($"editarimpresion?idImpresion={impresion.id}")>
+                            Editar
+                        </NavLink></td>
+                        
+                         <td>
+                           <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(impresion)">Eliminar<span class="oi oi-trash" ></span></button>
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+}
+
+
+
+@code {
+     private List<Impresion>? impresiones;
+
+    protected override async Task OnInitializedAsync()
+    {
+       
+       impresiones = await impresionService.GetAllAsync();
+    }
+
+
+    private async void Eliminar(Impresion impresion)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando impresion",
+                Text = $"¿Está seguro/ que desea borrar  {impresion.tamanio}",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si, quiero borrarlo!",
+                CancelButtonText = "No, espera"
+            });
+        if (respuesta.IsConfirmed)
+        {
+            await impresionService.DeleteAsync(impresion.id);
+            impresiones = await impresionService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+
+  
+}

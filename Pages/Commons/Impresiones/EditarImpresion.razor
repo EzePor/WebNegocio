@@ -1,0 +1,70 @@
+﻿@page "/editarimpresion"
+
+
+@inject GenericService<Impresion> impresionService
+@inject NavigationManager NavigationManager
+@inject ILogger<EditarImpresion> Logger;
+
+
+
+
+<h1> Editar Impresión</h1>
+
+
+
+@if (impresion == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <h3>Editando Impresión @impresion.tamanio</h3>
+
+
+    <EditForm Model="impresion" OnValidSubmit="GuardarImpresion">
+        <DataAnnotationsValidator />
+        <label class="form-control mb-3" for="txtImpresion">Impresion:</label>
+        <input class="form-control mb-3" type="text" @bind="impresion.tamanio" />
+        <input class="form-control mb-3" type="text" @bind="impresion.precioF" />
+      
+        <ValidationSummary />
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
+    </EditForm>
+
+
+}
+
+
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public string? idImpresion { get; set; }
+
+    public Impresion? impresion { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        impresion = await impresionService.GetByIdAsync(int.Parse(idImpresion));
+    }
+
+
+
+    // guarda información del formulario editar
+    private async Task GuardarImpresion()
+    {
+        Logger.LogInformation(impresion.ToString());
+        await impresionService.UpdateAsync(impresion);
+        NavigationManager.NavigateTo("/impresiones");
+
+
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/impresiones"); // Reemplaza "/pagina-anterior" con la ruta de la página anterior
+    }
+}

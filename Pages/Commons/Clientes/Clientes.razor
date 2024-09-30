@@ -1,0 +1,106 @@
+﻿@page "/clientes"
+@using CurrieTechnologies.Razor.SweetAlert2
+
+
+@inject IGenericService<Cliente> clienteService
+@inject SweetAlertService SweetAlert
+
+
+<PageTitle>Clientes</PageTitle>
+
+
+<h1>Clientes</h1>
+
+
+@if (clientes == null)
+{
+    //@attribute [StreamRendering]
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <NavLink class="nuevo" href="nuevocliente">
+        Nuevo Cliente
+    </NavLink>
+    <div class="contenedor-tabla">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Apellido y Nombre</th>
+                    <th>CUIT/DNI</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Localidad</th>
+                    <th>Código Postal</th>
+                    <th>Provincia</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cliente in clientes)
+                {
+                    <tr>
+                        <td>@cliente.id</td>
+                        <td>@cliente.apellidoNombre</td>
+                        <td>@cliente.cuitDni</td>
+                        <td>@cliente.direccion</td>
+                        <td>@cliente.telefono</td>
+                        <td>@cliente.email</td>
+                        <td>@cliente.Localidad</td>
+                        <td>@cliente.CodigoPostal</td>
+                        <td>@cliente.Provincia</td>
+                        <td><NavLink class="editar" href=@($"editarcliente?idCliente={cliente.id}")>
+                            Editar
+                        </NavLink></td>
+                        
+                         <td>
+                           <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(cliente)">Eliminar<span class="oi oi-trash" ></span></button>
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+}
+
+
+
+@code {
+     private List<Cliente>? clientes;
+
+    protected override async Task OnInitializedAsync()
+    {
+       
+       clientes = await clienteService.GetAllAsync();
+    }
+
+
+    private async void Eliminar(Cliente cliente)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Alumno",
+                Text = $"¿Está seguro/ que desea borrar a {cliente.apellidoNombre}",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si, quiero borrarlo!",
+                CancelButtonText = "No, espera"
+            });
+        if (respuesta.IsConfirmed)
+        {
+            await clienteService.DeleteAsync(cliente.id);
+            clientes = await clienteService.GetAllAsync();
+            StateHasChanged();
+        }
+    }
+
+  
+}
