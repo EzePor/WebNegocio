@@ -40,7 +40,10 @@ else
                     <td>$ @pedido.DetallesProducto.Sum(p => p.total).ToString("F2")</td>
                     <td>$ @pedido.DetallesImpresion.Sum(i => i.total).ToString("F2")</td>
                     <td>$ @pedido.TotalPedido.ToString("F2")</td>
-                    <td>@pedido.estadoPedido</td>
+                        <td class="@GetEstadoClass(pedido.estadoPedido.ToString())">
+                            @pedido.estadoPedido
+                        </td>
+
                     <td>
                         <button class="btn btn-primary" @onclick="() => ToggleDetalle(pedido.id)">
                             Ver Detalles
@@ -100,5 +103,16 @@ else
         {
             mostrarDetalle = pedidoId;
         }
+    }
+
+    // Método para determinar la clase CSS en función del estado del pedido
+    private string GetEstadoClass(string estado)
+    {
+        if (estado == "Enviado" || estado == "Entregado")
+        {
+            return "estado-rojo"; // Clase CSS personalizada
+        }
+
+        return ""; // Retorna una cadena vacía para otros estados
     }
 }

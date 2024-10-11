@@ -786,6 +786,72 @@ p[b-ii3y782yvk] {
     padding: 7px;
     color: black;
 }
+/* /Pages/Details/completadosestadopagado/PedidosCompletosDuo.razor.rz.scp.css */
+h1[b-5yh36v7cg3] {
+    color: tomato;
+    border-bottom: 2px solid tomato;
+    text-shadow: 0 0 5px tomato, /* Sombra cercana */
+    0 0 10px tomato, /* Sombra intermedia */
+    0 0 20px tomato, /* Sombra m�s amplia */
+    0 0 40px red, /* Brillo rojizo */
+    0 0 60px red, /* Brillo m�s intenso */
+    0 0 80px crimson; /* Sombra externa grande */
+    font-weight: bold;
+    /* Agregar el borde fino al texto */
+    -webkit-text-stroke: 1px white; /* Soporte en navegadores Webkit */
+    text-stroke: 1px white; /* Soporte en navegadores modernos */
+}
+
+p[b-5yh36v7cg3] {
+    color: white;
+    font-size: xx-large;
+}
+
+.contenedor-tabla[b-5yh36v7cg3] {
+    display: flex;
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+}
+
+
+.contenedor-form[b-5yh36v7cg3] {
+    background-color: bisque;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top: 10px;
+    padding: 7px;
+    color: black;
+}
+.contenedor-botones[b-5yh36v7cg3]{
+    display:flex; 
+    justify-content:space-around;
+}
+
+.btn-ver[b-5yh36v7cg3]{
+    background-color: yellowgreen;
+    margin-top:15px;
+    font-weight:bold;
+
+
+}
+
+.btn-ver:hover[b-5yh36v7cg3]{
+    background-color:darkgreen;
+    color:white;
+}
+
+.btn-guardar[b-5yh36v7cg3] {
+    background-color:springgreen;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.btn-guardar:hover[b-5yh36v7cg3] {
+    background-color: darkolivegreen;
+    color: white;
+}
 /* /Pages/Details/CrearPedidos/CrearPedidos.razor.rz.scp.css */
 
 .contenedor-botones[b-le78m9prkx]{
@@ -976,6 +1042,11 @@ button[b-rbolat9v00] {
         background-color: #0056b3;
     }
 
+/* Aplica color rojo al estado del pedido */
+.estado-rojo[b-rbolat9v00] {
+    color: red;
+    font-weight: bold;
+}
 
 
 /* /Pages/Details/CrearPedidos/PedidosCompletos.razor.rz.scp.css */
@@ -1176,6 +1247,11 @@ button[b-kd4h1usbvm] {
 
 
 
+/* Aplica color rojo al estado del pedido */
+.estado-rojo[b-kd4h1usbvm] {
+    color: red;
+    font-weight: bold;
+}
 /* /Pages/Details/ResumenPedidos/ResumenPedidos.razor.rz.scp.css */
 h1[b-5ac8hdikce] {
     color: tomato;
@@ -1249,6 +1325,11 @@ button[b-5ac8hdikce] {
     }
 
 
+/* Aplica color rojo al estado del pedido */
+.estado-rojo[b-5ac8hdikce] {
+    color: red;
+    font-weight: bold;
+}
 
 /* /Pages/Details/SweetAl2/Alert.razor.rz.scp.css */
 h1[b-o5h2hcp6ge]{

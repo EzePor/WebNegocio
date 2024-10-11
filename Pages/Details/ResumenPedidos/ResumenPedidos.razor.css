@@ -70,4 +70,9 @@ button {
     }
 
 
+/* Aplica color rojo al estado del pedido */
+.estado-rojo {
+    color: red;
+    font-weight: bold;
+}
 

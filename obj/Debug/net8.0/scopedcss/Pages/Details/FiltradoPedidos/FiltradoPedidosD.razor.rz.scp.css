@@ -53,3 +53,8 @@ button[b-kd4h1usbvm] {
 
 
 
+/* Aplica color rojo al estado del pedido */
+.estado-rojo[b-kd4h1usbvm] {
+    color: red;
+    font-weight: bold;
+}

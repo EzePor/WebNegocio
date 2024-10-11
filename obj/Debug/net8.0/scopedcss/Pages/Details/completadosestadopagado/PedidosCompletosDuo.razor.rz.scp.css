@@ -1,4 +1,4 @@
-h1[b-5ac8hdikce] {
+h1[b-5yh36v7cg3] {
     color: tomato;
     border-bottom: 2px solid tomato;
     text-shadow: 0 0 5px tomato, /* Sombra cercana */
@@ -13,12 +13,12 @@ h1[b-5ac8hdikce] {
     text-stroke: 1px white; /* Soporte en navegadores modernos */
 }
 
-p[b-5ac8hdikce] {
+p[b-5yh36v7cg3] {
     color: white;
     font-size: xx-large;
 }
 
-.contenedor-tabla[b-5ac8hdikce] {
+.contenedor-tabla[b-5yh36v7cg3] {
     display: flex;
     background-color: bisque;
     padding: 10px;
@@ -27,7 +27,7 @@ p[b-5ac8hdikce] {
 }
 
 
-.contenedor-form[b-5ac8hdikce] {
+.contenedor-form[b-5yh36v7cg3] {
     background-color: bisque;
     border-radius: 8px;
     box-shadow: 2px 2px 2px 2px;
@@ -35,44 +35,31 @@ p[b-5ac8hdikce] {
     padding: 7px;
     color: black;
 }
-
-.pedido-list[b-5ac8hdikce] {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.contenedor-botones[b-5yh36v7cg3]{
+    display:flex; 
+    justify-content:space-around;
 }
 
-.pedido-card[b-5ac8hdikce] {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+.btn-ver[b-5yh36v7cg3]{
+    background-color: yellowgreen;
+    margin-top:15px;
+    font-weight:bold;
+
+
 }
 
-.detalles-section[b-5ac8hdikce] {
-    margin-top: 1rem;
-    background-color: #f1f1f1;
-    padding: 0.5rem;
-    border-radius: 4px;
+.btn-ver:hover[b-5yh36v7cg3]{
+    background-color:darkgreen;
+    color:white;
 }
 
-button[b-5ac8hdikce] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-    button:hover[b-5ac8hdikce] {
-        background-color: #0056b3;
-    }
-
-
-/* Aplica color rojo al estado del pedido */
-.estado-rojo[b-5ac8hdikce] {
-    color: red;
+.btn-guardar[b-5yh36v7cg3] {
+    background-color:springgreen;
+    margin: 10px;
     font-weight: bold;
 }
 
+.btn-guardar:hover[b-5yh36v7cg3] {
+    background-color: darkolivegreen;
+    color: white;
+}

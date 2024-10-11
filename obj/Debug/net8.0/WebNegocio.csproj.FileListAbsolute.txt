@@ -1062,3 +1062,4 @@ E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\WebN
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\refint\WebNegocio.dll
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\WebNegocio.pdb
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\ref\WebNegocio.dll
+E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Details\completadosestadopagado\PedidosCompletosDuo.razor.rz.scp.css
