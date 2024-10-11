@@ -114,9 +114,25 @@ build_metadata.AdditionalFiles.CssScope = b-ii3y782yvk
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xDcmVhclBlZGlkb3NcQ3JlYXJQZWRpZG9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-le78m9prkx
 
-[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/DuoPedidos/DuoPedidos.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xEdW9QZWRpZG9zXER1b1BlZGlkb3MucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-239xillw9n
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/CrearPedidos/EditarPedido.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xDcmVhclBlZGlkb3NcRWRpdGFyUGVkaWRvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-6vys3sk4uf
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/CrearPedidos/FiltradoPedidos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xDcmVhclBlZGlkb3NcRmlsdHJhZG9QZWRpZG9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-rbolat9v00
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/CrearPedidos/PedidosCompletos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xDcmVhclBlZGlkb3NcUGVkaWRvc0NvbXBsZXRvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-lx5nzooot1
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/DuoPedidos/CrearPedidos2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xEdW9QZWRpZG9zXENyZWFyUGVkaWRvczIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-qpn8up1ug1
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/FiltradoPedidos/FiltradoPedidosD.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xGaWx0cmFkb1BlZGlkb3NcRmlsdHJhZG9QZWRpZG9zRC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-kd4h1usbvm
 
 [E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Details/ResumenPedidos/ResumenPedidos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsc1xSZXN1bWVuUGVkaWRvc1xSZXN1bWVuUGVkaWRvcy5yYXpvcg==

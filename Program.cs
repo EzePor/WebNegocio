@@ -31,6 +31,17 @@ builder.Services.AddScoped<GenericService<Pedido>>();
 builder.Services.AddScoped<GenericService<ResumenPedido>>();
 builder.Services.AddScoped<IResumenPedidoService, ResumenPedidoService>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IModoPagoService, ModoPagoService>();
+
+builder.Services.AddScoped<IGenericService<Cliente>, GenericService<Cliente>>();
+builder.Services.AddScoped<IGenericService<ModoPago>, GenericService<ModoPago>>();
+
+builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<ModoPagoService>();
+
+builder.Services.AddScoped<SweetAlertService>();
+
 
 
 

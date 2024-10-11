@@ -1,10 +1,93 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    background-color:var(--erie-black);
+    color: var(--anti-flash-white)
+
 }
 
-h1:focus {
-    outline: none;
+:root {
+    --erie-black: #1C2321;
+    --jungle-green: #49A078;
+    --jungle-greenHover: #1b6b45;
+    --anti-flash-white: #EEEEEE;
+    --tropical-indigo: #8D85C1;
+    --periwinkle: #D4CDF4;
+    --vista-blue: #72A1E5;
+    --poppy-red: #DF2935;
+    --safety-orange: #EC7505;
+    --tropical-indigoHover: #7a68f1;
+    --grisClaro: #dcddf3;
+    --fondoTabla: bisque ;
 }
+
+.navlink{
+    text-decoration:none;
+    color: var(--anti-flash-white);
+    font-size: 12px;
+    font-weight:500;
+    padding-left: 5px;
+    margin: auto;
+    
+}
+
+    .navlink:hover{
+        background-color: var(--fondoTabla);
+        color: var(--erie-black);
+        padding:6px 10px;
+        border-radius:6px;
+    }
+
+    .nuevo{
+        text-decoration:none;
+        color : var(--jungle-green);
+        background-color: var(--anti-flash-white);
+        padding: 4px 6px;
+        border-radius: 6px;
+        margin: 20px;
+        border: 1px solid var(--jungle-green);
+
+    }
+
+.eliminar {
+    background-color: transparent; /* Elimina el fondo */
+    border: none; /* Quita el borde */
+    cursor: pointer; /* Cambia el cursor a pointer */
+    padding: 0; /* Elimina el padding */
+    margin: 0; /* Elimina el margen */
+}
+
+    .eliminar i {
+        font-size: 1.5rem; /* Ajusta el tamaño del ícono si es necesario */
+        color: red; /* Cambia el color del ícono */
+        transition: color 0.3s; /* Agrega una transición suave al cambiar de color */
+    }
+
+    .eliminar:hover i {
+        color: darkred; /* Cambia el color del ícono al hacer hover */
+    }
+
+.editar {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    text-decoration: none; /* Quita el subrayado del enlace */
+}
+
+    .editar i {
+        font-size: 1.5rem; /* Ajusta el tamaño para que coincida con eliminar */
+        color: blue; /* Color inicial del ícono */
+        transition: color 0.3s;
+    }
+
+    .editar:hover i {
+        color: darkblue; /* Color al hacer hover */
+    }
+
+    h1:focus {
+        outline: none;
+    }
 
 a, .btn-link {
     color: #0071c1;

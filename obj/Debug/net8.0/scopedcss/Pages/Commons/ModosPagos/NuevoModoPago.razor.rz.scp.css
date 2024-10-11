@@ -1,11 +1,21 @@
-h1[b-b1endoydpm]{
-    color:tomato;
+h1[b-b1endoydpm] {
+    color: tomato;
     border-bottom: 2px solid tomato;
+    text-shadow: 0 0 5px tomato, /* Sombra cercana */
+    0 0 10px tomato, /* Sombra intermedia */
+    0 0 20px tomato, /* Sombra m�s amplia */
+    0 0 40px red, /* Brillo rojizo */
+    0 0 60px red, /* Brillo m�s intenso */
+    0 0 80px crimson; /* Sombra externa grande */
+    font-weight: bold;
+    /* Agregar el borde fino al texto */
+    -webkit-text-stroke: 1px white; /* Soporte en navegadores Webkit */
+    text-stroke: 1px white; /* Soporte en navegadores modernos */
 }
 
-p[b-b1endoydpm]{
-    color:darkmagenta;
-    font-size: x-large;
+p[b-b1endoydpm] {
+    color: white;
+    font-size: xx-large;
 }
 
 .contenedor-tabla[b-b1endoydpm] {
@@ -14,4 +24,14 @@ p[b-b1endoydpm]{
     padding: 10px;
     border-radius: 8px;
     box-shadow: 2px 2px 2px 2px;
+}
+
+
+.contenedor-form[b-b1endoydpm] {
+    background-color: bisque;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top: 10px;
+    padding: 7px;
+    color: black;
 }

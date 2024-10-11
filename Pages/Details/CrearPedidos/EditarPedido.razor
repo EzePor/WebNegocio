@@ -1,9 +1,10 @@
-﻿@page "/duopedidos"
+﻿@page "/editarpedido"
+
 @using Microsoft.Extensions.Logging
 @using System.Text.Json
 @using WebNegocio.Enums
 @using WebNegocio.Interfaces.Pedidos
-@using WebNegocio.Interfaces.resumenPedido
+
 @using WebNegocio.Pages.Commons.Impresiones
 @using WebNegocio.Pages.Commons.Productos
 @using WebNegocio.Models.Details
@@ -13,26 +14,29 @@
 @inject IGenericService<Producto> productoService
 @inject IGenericService<Impresion> impresionService
 @inject IGenericService<ModoPago> modopagoService
-@inject IGenericService<DetalleProducto> detalleProductoService
-@inject IGenericService<DetalleImpresion> detalleImpresionService
-@inject IResumenPedidoService resumenPedidoService
-@inject ILogger<DuoPedidos> Logger
-@inject IPedidoService pedidoService
+@inject SweetAlertService sweetAlert
+@inject ILogger<EditarPedido> Logger
+@inject NavigationManager NavigationManager
 
 
 
+<PageTitle>Editar Pedido</PageTitle>
 
-<PageTitle>Gestión de Pedidos</PageTitle>
-
-<h1>Crear o Editar Pedido</h1>
+<h1>Editar Pedido</h1>
 
 @if (clientes == null || productos == null || impresiones == null || modosPago == null || nuevoPedido == null)
 {
     <p>Cargando datos...</p>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <p class="text-danger">@errorMessage</p>
+    }
+
 }
 else
 {
     <!-- Formulario del Pedido -->
+    <div class="contenedor-form">
     <div class="row">
         <!-- Sección Cliente -->
         <div class="col-md-6">
@@ -187,67 +191,158 @@ else
     <div class="mt-3">
         <button class="btn btn-success" @onclick="GuardarPedido">Guardar Pedido</button>
     </div>
+    </div>
 }
 
 @code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public int idPedido { get; set; }
+    public Pedido pedido { get; set; }
+    
+    private string errorMessage;
+
     List<Cliente>? clientes;
     List<Producto>? productos;
     List<Impresion>? impresiones;
     List<ModoPago>? modosPago;
-    List<DetalleProducto> detallesProducto = new List<DetalleProducto>();
-    List<DetalleImpresion> detalleImpresiones = new List<DetalleImpresion>();
-    List<Pedido>? pedidos;
 
-    Pedido nuevoPedido = new Pedido();
+    Pedido nuevoPedido = new Pedido(); // Este será el pedido a editar
     int productoSeleccionadoId;
     int cantidadProducto;
     int impresionSeleccionadaId;
     int cantidadImpresion;
 
-
     protected override async Task OnInitializedAsync()
     {
-        clientes = await clienteService.GetAllAsync();
-        productos = await productoService.GetAllAsync();
-        impresiones = await impresionService.GetAllAsync();
-        modosPago = await modopagoService.GetAllAsync();
+        try
+        {
+            clientes = await clienteService.GetAllAsync();
+            productos = await productoService.GetAllAsync();
+            impresiones = await impresionService.GetAllAsync();
+            modosPago = await modopagoService.GetAllAsync();
+
+            // Cargar los datos del pedido con idPedido
+            var pedido = await pedidoService.GetByIdAsync(idPedido);
+
+            if (pedido != null)
+            {
+                // Asignar el pedido cargado a nuevoPedido
+                nuevoPedido = pedido;
+            }
+            else
+            {
+                errorMessage = "No se encontró el pedido.";
+                Logger.LogError("Pedido no encontrado");
+                NavigationManager.NavigateTo("/filtradopedidos");
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error al cargar los datos del pedido: {ex.Message}";
+            Console.WriteLine(errorMessage); // Muestra el error en la consola
+            Logger.LogError(ex, "Error al cargar los datos del pedido");
+        }
     }
 
+    private async Task GuardarPedido()
+    {
+        try
+        {
+            // Actualizar los detalles del pedido
+            nuevoPedido.DetallesProducto = nuevoPedido.DetallesProducto.Select(dp => new DetalleProducto
+                {
+                    ProductoId = dp.ProductoId,
+                    cantidad = dp.cantidad,
+                    precioUnitario = dp.precioUnitario,
+                    eliminado = dp.eliminado
+                }).ToList();
+
+            nuevoPedido.DetallesImpresion = nuevoPedido.DetallesImpresion.Select(di => new DetalleImpresion
+                {
+                    ImpresionId = di.ImpresionId,
+                    cantidad = di.cantidad,
+                    precioUnitario = di.precioUnitario,
+                    eliminado = di.eliminado
+                }).ToList();
+
+            // Actualizar el pedido en lugar de agregar uno nuevo
+            await pedidoService.UpdateAsync(nuevoPedido);
+            Logger.LogInformation("Pedido actualizado exitosamente.");
+
+            // Mostrar alerta de éxito
+            await sweetAlert.FireAsync(new SweetAlertOptions
+                {
+                    Title = "Pedido Actualizado!",
+                    Text = "El pedido fue actualizado correctamente.",
+                    Icon = SweetAlertIcon.Success
+                });
+
+            // Redirigir a la página de pedidos
+            NavigationManager.NavigateTo("/filtradopedidos");
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error al actualizar el pedido");
+            await sweetAlert.FireAsync(new SweetAlertOptions
+                {
+                    Title = "Error",
+                    Text = "Ocurrió un error al actualizar el pedido.",
+                    Icon = SweetAlertIcon.Error
+                });
+        }
+    }
     // Agregar Producto al Pedido
     private void AgregarProducto()
     {
-        var producto = productos?.FirstOrDefault(p => p.id == productoSeleccionadoId);
-        if (producto != null)
+        try
         {
-            var detalleProducto = new DetalleProducto
-                {
-                    ProductoId = producto.id,
-                    cantidad = cantidadProducto,
-                    precioUnitario = producto.precio,
-                    producto = producto  // Asigna el producto completo aquí
-                };
-            nuevoPedido?.DetallesProducto?.Add(detalleProducto);
+            var producto = productos?.FirstOrDefault(p => p.id == productoSeleccionadoId);
+            if (producto != null)
+            {
+                var detalleProducto = new DetalleProducto
+                    {
+                        ProductoId = producto.id,
+                        cantidad = cantidadProducto,
+                        precioUnitario = producto.precio,
+                        producto = producto
+                    };
+                nuevoPedido.DetallesProducto.Add(detalleProducto);
+            }
+            CalcularTotalPedido();
+            StateHasChanged();
         }
-        CalcularTotalPedido();
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error al agregar producto");
+        }
     }
 
 
     // Agregar Impresión al Pedido
     private void AgregarImpresion()
     {
-        var impresion = impresiones.FirstOrDefault(i => i.id == impresionSeleccionadaId);
-        if (impresion != null)
+        try
         {
-            var detalleImpresion = new DetalleImpresion
-                {
-                    ImpresionId = impresion.id,
-                    cantidad = cantidadImpresion,
-                    precioUnitario = impresion.precioBase,
-                    impresion = impresion  // Asigna la impresión completa aquí
-                };
-            nuevoPedido?.DetallesImpresion?.Add(detalleImpresion);
+            var impresion = impresiones?.FirstOrDefault(i => i.id == impresionSeleccionadaId);
+            if (impresion != null)
+            {
+                var detalleImpresion = new DetalleImpresion
+                    {
+                        ImpresionId = impresion.id,
+                        cantidad = cantidadImpresion,
+                        precioUnitario = impresion.precioBase,
+                        impresion = impresion
+                    };
+                nuevoPedido.DetallesImpresion.Add(detalleImpresion);
+            }
+            CalcularTotalPedido();
+            StateHasChanged();
         }
-        CalcularTotalPedido();
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error al agregar impresión");
+        }
     }
 
 
@@ -278,43 +373,6 @@ else
     }
 
 
-
-
-    // Guardar Pedido
-    private async Task GuardarPedido()
-    {
-        try
-        {
-            Console.WriteLine($"Detalles Producto: {JsonSerializer.Serialize(nuevoPedido.DetallesProducto)}");
-            Console.WriteLine($"Detalles Impresión: {JsonSerializer.Serialize(nuevoPedido.DetallesImpresion)}");
-            Console.WriteLine($"datos del pedido: {JsonSerializer.Serialize(nuevoPedido)}");
-            // Guarda el pedido utilizando el servicio genérico
-            var response = await pedidoService.AddAsync(nuevoPedido);
-
-
-            Console.WriteLine($"datos del pedido: {JsonSerializer.Serialize(nuevoPedido)}");
-
-
-
-
-
-
-
-
-            Console.WriteLine($"Pedido: {response}");
-
-            // Notificación de éxito
-            // Aquí puedes usar SweetAlert o algún mensaje de confirmación
-            Console.WriteLine("Pedido guardado exitosamente.");
-        }
-        catch (Exception ex)
-        {
-            // Manejo de errores
-            Console.WriteLine($"Error al guardar el pedido: {ex.Message}");
-        }
-
-        StateHasChanged();
-    }
 
 
 

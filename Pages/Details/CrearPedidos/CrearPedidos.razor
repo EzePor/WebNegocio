@@ -37,6 +37,7 @@
 else
 {
     <!-- Formulario del Pedido -->
+    <div class="contenedor-form"  >
     <div class="row">
         <!-- Sección Cliente -->
         <div class="col-md-6">
@@ -188,8 +189,21 @@ else
     </div>
 
     <!-- Botón Guardar Pedido -->
+    <div  class="contenedor-botones">
     <div class="mt-3">
-        <button class="btn btn-success" @onclick="GuardarPedido">Guardar Pedido</button>
+        <button class="btn btn-guardar" @onclick="GuardarPedido">Guardar Pedido</button>
+    </div>
+    <div>
+            <NavLink class="nav-link" href=@($"filtradopedidos")>
+                <button class="btn btn-ver">Ver Pedidos</button>
+            </NavLink>
+    </div>
+            <div>
+                <NavLink class="nav-link" href=@($"nuevocliente")>
+                    <button class="btn btn-nuevo">Nuevo Cliente</button>
+                </NavLink>
+            </div>
+    </div>
     </div>
 }
 
@@ -224,31 +238,61 @@ else
         }
     }
 
-    // Agregar Producto al Pedido
-    private void AgregarProducto()
+// Agregar Producto al Pedido
+private void AgregarProducto()
+{
+    try
     {
-        try
+        // Validar que la cantidad sea mayor a 0
+        if (cantidadProducto < 1)
         {
-            var producto = productos?.FirstOrDefault(p => p.id == productoSeleccionadoId);
-            if (producto != null)
+            sweetAlert.FireAsync(new SweetAlertOptions
             {
-                var detalleProducto = new DetalleProducto
-                    {
-                        ProductoId = producto.id,
-                        cantidad = cantidadProducto,
-                        precioUnitario = producto.precio,
-                        producto = producto
-                    };
-                nuevoPedido.DetallesProducto.Add(detalleProducto);
-            }
-            CalcularTotalPedido();
-            StateHasChanged();
+                Title = "Error",
+                Text = $"Error, la cantidad del producto debe ser mayor a 0.",
+                Icon = SweetAlertIcon.Error
+            });
+            return;
         }
-        catch (Exception ex)
+
+        var producto = productos?.FirstOrDefault(p => p.id == productoSeleccionadoId);
+        if (producto != null)
         {
-            Logger.LogError(ex, "Error al agregar producto");
+            // Verificar si el stock es suficiente
+            if (producto.stock < cantidadProducto)
+            {
+                sweetAlert.FireAsync(new SweetAlertOptions
+                {
+                    Title = "Stock insuficiente",
+                    Text = $"Solo hay {producto.stock} unidades disponibles de {producto.nombre}.",
+                    Icon = SweetAlertIcon.Warning
+                });
+                return; // No permite agregar el producto si no hay suficiente stock
+            }
+
+            // Crear el detalle del producto si el stock es suficiente
+            var detalleProducto = new DetalleProducto
+            {
+                ProductoId = producto.id,
+                cantidad = cantidadProducto,
+                precioUnitario = producto.precio,
+                producto = producto
+            };
+            nuevoPedido.DetallesProducto.Add(detalleProducto);
+
+            // Resetear el formulario de producto
+            productoSeleccionadoId = 0;
+            cantidadProducto = 1;
         }
+
+        CalcularTotalPedido();
+        StateHasChanged();
     }
+    catch (Exception ex)
+    {
+        Logger.LogError(ex, "Error al agregar producto");
+    }
+}
 
 
     // Agregar Impresión al Pedido
@@ -256,6 +300,19 @@ else
     {
         try
         {
+            // Validar que la cantidad sea mayor a 0
+            if (cantidadImpresion < 1)
+            {
+                // Manejo de errores, puedes mostrar una alerta de error
+                sweetAlert.FireAsync(new SweetAlertOptions
+                    {
+                        Title = "Error",
+                        Text = $"Error, La cantidad del producto debe ser mayor a 0.",
+                        Icon = SweetAlertIcon.Error
+                    });
+                    return;
+            }
+
             var impresion = impresiones?.FirstOrDefault(i => i.id == impresionSeleccionadaId);
             if (impresion != null)
             {
@@ -267,6 +324,10 @@ else
                         impresion = impresion
                     };
                 nuevoPedido.DetallesImpresion.Add(detalleImpresion);
+
+                // Resetear el formulario de impresión
+                impresionSeleccionadaId = 0;
+                cantidadImpresion = 1;
             }
             CalcularTotalPedido();
             StateHasChanged();
@@ -344,25 +405,26 @@ else
                 };
 
             // Llamar al servicio para guardar el pedido
+            Console.WriteLine(JsonSerializer.Serialize(pedido));
             await pedidoService.AddAsync(pedido);
             Logger.LogInformation("Pedido guardado exitosamente.");
 
             // Mostrar la alerta de éxito al guardar el pedido correctamente
-             var confirmarPedido =  await sweetAlert.FireAsync(new SweetAlertOptions
+            var confirmarPedido = await sweetAlert.FireAsync(new SweetAlertOptions
                 {
                     Title = "PEDIDO GUARDADO !!!",
                     Text = "El pedido se guardó correctamente.",
                     Icon = SweetAlertIcon.Success,
                     ShowCancelButton = true,
                     ConfirmButtonText = "GUARDAR PEDIDO",
-                    CancelButtonText =  "NO GUARDAR PEDIDO",
+                    CancelButtonText = "NO GUARDAR PEDIDO",
                 });
-                var confirmado = !string.IsNullOrEmpty(confirmarPedido.Value);
-                if (confirmado)
-                {
-                    // Por ejemplo, puedes redirigir a la página de pedidos.
-                    NavigationManager.NavigateTo("/");
-                }
+            var confirmado = !string.IsNullOrEmpty(confirmarPedido.Value);
+            if (confirmado)
+            {
+                // Por ejemplo, puedes redirigir a la página de pedidos.
+                NavigationManager.NavigateTo("/");
+            }
 
         }
         catch (Exception ex)
@@ -387,7 +449,10 @@ else
         }
     }
 
-
-
+    private void LimpiarFormulario()
+    {
+        nuevoPedido = new Pedido();  // Reiniciar la variable a un nuevo pedido vacío
+        StateHasChanged();  // Forzar la actualización del estado de la interfaz para reflejar los cambios
+    }
     
 }

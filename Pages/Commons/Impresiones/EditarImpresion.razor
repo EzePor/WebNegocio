@@ -1,7 +1,7 @@
 ﻿@page "/editarimpresion"
 
 
-@inject GenericService<Impresion> impresionService
+@inject IGenericService<Impresion> impresionService
 @inject NavigationManager NavigationManager
 @inject ILogger<EditarImpresion> Logger;
 
@@ -21,19 +21,19 @@ else
 {
     <h3>Editando Impresión @impresion.tamanio</h3>
 
-
+    <div class="contenedor-form">
     <EditForm Model="impresion" OnValidSubmit="GuardarImpresion">
         <DataAnnotationsValidator />
         <label class="form-control mb-3" for="txtImpresion">Impresion:</label>
-        <input class="form-control mb-3" type="text" @bind="impresion.tamanio" />
-        <input class="form-control mb-3" type="text" @bind="impresion.precioF" />
+        <InputText class="form-control mb-3" type="text" @bind-Value="impresion.tamanio" />
+        <InputText class="form-control mb-3" type="text" @bind-Value="impresion.precioF" />
       
         <ValidationSummary />
         <button class="btn btn-primary" type="submit">Guardar</button>
         <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
     </EditForm>
 
-
+    </div>
 }
 
 
@@ -48,7 +48,21 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        if (string.IsNullOrEmpty(idImpresion))
+        {
+            // Loguear el problema si `idImpresion` es nulo
+            Logger.LogError("idImpresion es nulo o vacío.");
+            return;
+        }
+
+        // Intentar obtener la impresión por ID
         impresion = await impresionService.GetByIdAsync(int.Parse(idImpresion));
+
+        if (impresion == null)
+        {
+            // Loguear si la impresión no fue encontrada
+            Logger.LogError($"No se encontró ninguna impresión con ID: {idImpresion}");
+        }
     }
 
 
@@ -56,9 +70,23 @@ else
     // guarda información del formulario editar
     private async Task GuardarImpresion()
     {
-        Logger.LogInformation(impresion.ToString());
+       if (impresion == null)
+    {
+        Logger.LogError("La impresión es nula, no se puede actualizar.");
+        return;
+    }
+
+    Logger.LogInformation($"Guardando impresión con ID: {impresion.id} y tamaño: {impresion.tamanio}y precio : {impresion.precioF}");
+    
+    try
+    {
         await impresionService.UpdateAsync(impresion);
         NavigationManager.NavigateTo("/impresiones");
+    }
+    catch (Exception ex)
+    {
+        Logger.LogError($"Error al guardar la impresión: {ex.Message}");
+    }
 
 
     }

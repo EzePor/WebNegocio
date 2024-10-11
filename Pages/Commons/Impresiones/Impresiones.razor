@@ -20,6 +20,7 @@
 else
 {
     <NavLink class="nuevo" href="nuevaimpresion">
+        <i class="bi bi-plus-square"></i>
         Nueva Impresion
     </NavLink>
     <div class="contenedor-tabla">
@@ -48,11 +49,11 @@ else
                      
                         
                         <td><NavLink class="editar" href=@($"editarimpresion?idImpresion={impresion.id}")>
-                            Editar
+                                <i title="editar" class="bi bi-pencil-square"></i>
                         </NavLink></td>
                         
                          <td>
-                           <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(impresion)">Eliminar<span class="oi oi-trash" ></span></button>
+                            <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(impresion)"><i class="bi bi-trash3-fill"></i><span class="oi oi-trash"></span></button>
                         </td>
                         
                     </tr>

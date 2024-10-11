@@ -20,6 +20,7 @@
 else
 {
     <NavLink class="nuevo" href="nuevomodopago">
+        <i class="bi bi-plus-square"></i>
         Nuevo Modo de pago
     </NavLink>
     <div class="contenedor-tabla">
@@ -30,6 +31,8 @@ else
                     <th>ID</th>
                     <th>NOMBRE</th>
                     <th>AJUSTE</th>
+                    <th></th>
+                    <th></th>
                     <th></th>
                     <th></th>
                    
@@ -48,11 +51,11 @@ else
                      
                         
                         <td><NavLink class="editar" href=@($"editarmodopago?idModoPago={modopago.id}")>
-                            Editar
+                                <i title="editar" class="bi bi-pencil-square"></i>
                         </NavLink></td>
                         
                          <td>
-                           <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(modopago)">Eliminar<span class="oi oi-trash" ></span></button>
+                            <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(modopago)"><i class="bi bi-trash3-fill"></i><span class="oi oi-trash"></span></button>
                         </td>
                         
                     </tr>

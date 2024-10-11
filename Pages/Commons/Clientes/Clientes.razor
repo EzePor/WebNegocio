@@ -20,6 +20,7 @@
 else
 {
     <NavLink class="nuevo" href="nuevocliente">
+        <i class="bi bi-plus-square"></i>
         Nuevo Cliente
     </NavLink>
     <div class="contenedor-tabla">
@@ -53,11 +54,11 @@ else
                         <td>@cliente.CodigoPostal</td>
                         <td>@cliente.Provincia</td>
                         <td><NavLink class="editar" href=@($"editarcliente?idCliente={cliente.id}")>
-                            Editar
+                                <i title="editar" class="bi bi-pencil-square"></i>
                         </NavLink></td>
                         
                          <td>
-                           <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(cliente)">Eliminar<span class="oi oi-trash" ></span></button>
+                            <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(cliente)"><i class="bi bi-trash3-fill"></i><span></span></button>
                         </td>
                         
                     </tr>

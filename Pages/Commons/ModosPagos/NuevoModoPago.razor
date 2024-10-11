@@ -15,6 +15,7 @@
 else
 {
     <h3 >Cargando nuevo modo de pago... @modopago.nombre</h3>
+    <div class="contenedor-form">
     <EditForm Model="modopago" OnValidSubmit="GuardarModoPago">
         <DataAnnotationsValidator />
         <label class="form-control mb-3" for="txtModoPago">Modo de pago:</label>
@@ -26,6 +27,7 @@ else
         <button class="btn btn-primary" type="submit">Guardar</button>
         <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
     </EditForm>
+    </div>
 }
 
 

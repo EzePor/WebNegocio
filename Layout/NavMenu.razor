@@ -7,61 +7,71 @@
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+<div class="@NavMenuCssClass bg-dark nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> INICIO
+        <div class="nav-link ">
+            <NavLink class="navlink" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door" aria-hidden="true"></span> INICIO
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="clientes">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> CLIENTES
+        <div class="nav-link ">
+            <NavLink class="navlink" href="clientes">
+                <span class="bi bi-person-square" aria-hidden="true"></span>CLIENTE
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="productos">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> PRODUCTOS
+        <div class="nav-link">
+            <NavLink class="navlink" href="productos">
+                <span class="bi bi-basket" aria-hidden="true"></span> PRODUCTOS
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> PEDIDOS
+        <div class="nav-link">
+            <NavLink class="navlink" href="">
+                <span class="bi bi-cart-plus" aria-hidden="true"></span> PEDIDOS
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="impresiones">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> IMPRESIONES FOTOGRÁFICAS
+        <div class="nav-link">
+            <NavLink class="navlink" href="impresiones">
+                <span class="bi bi-printer" aria-hidden="true"></span> IMPRESIONES
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="modospagos">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> MODO DE PAGO
+        <div class="nav-link">
+            <NavLink class="navlink" href="modospagos">
+                <span class="bi bi-cash-coin" aria-hidden="true"></span> MODO DE PAGO
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="empleados">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> EMPLEADOS
+        <div class="nav-link">
+            <NavLink class="navlink" href="empleados">
+                <span class="bi bi-person-workspace" aria-hidden="true"></span> EMPLEADOS
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="detalleimpresion">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> DETALLE IMPRESIONES
+        <div class="nav-link">
+            <NavLink class="navlink" href="crearpedidos2">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> CREAR 2 
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="crearpedidos">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> CREAR PEDIDOS
+        <div class="nav-link">
+            <NavLink class="navlink" href="crearpedidos">
+                <span class="bi bi-cart-plus" aria-hidden="true"></span> CREAR PEDIDOS
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="alert">
+        <div class="nav-link">
+            <NavLink class="navlink" href="alert">
                 <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> ALERTA
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="resumenpedidos">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> RESUMEN DE PEDIDOS
+        <div class="nav-link">
+            <NavLink class="navlink" href="resumenpedidos">
+                <span class="bi bi-cart3" aria-hidden="true"></span> RESUMEN DE PEDIDOS
+            </NavLink>
+        </div>
+        <div class="nav-link">
+            <NavLink class="navlink" href="filtradopedidos">
+                <span class="bi bi-cart4" aria-hidden="true"></span> FILTRAR PEDIDOS
+            </NavLink>
+        </div>
+        <div class="nav-link">
+            <NavLink class="navlink" href="pedidoscompletados">
+                <span class="bi bi-cart-fill" aria-hidden="true"></span>PEDIDO COMPLETADOS
             </NavLink>
         </div>
     </nav>

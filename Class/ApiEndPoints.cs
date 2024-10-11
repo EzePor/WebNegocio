@@ -8,7 +8,7 @@
         public static string DetalleProducto { get; set; } = "detalleproductos";
         public static string DetalleImpresion { get; set; } = "detalleimpresiones";
          public static string ResumenPedido { get; set; } = "pedidos";
-
+        public static string EstadoPedido { get; set; } = "pedidos/estado";
         public static string Producto { get; set; } = "productos";
         public static string Impresion { get; set; } = "impresiones";
         public static string Usuario { get; set; } = "usuarios";
@@ -28,6 +28,7 @@
                 nameof(Impresion) => Impresion,
                 nameof(Usuario) => Usuario,
                 nameof(Empleado) => Empleado,
+                nameof(EstadoPedido) => EstadoPedido,
                 _ => throw new ArgumentException($"Endpoint '{name}' no está definido.")
             };
         }

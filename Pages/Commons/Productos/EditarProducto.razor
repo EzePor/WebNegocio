@@ -1,4 +1,5 @@
 ﻿@page "/editarproducto"
+@using WebNegocio.Enums
 
 
 @inject GenericService<Producto> productoService
@@ -21,19 +22,25 @@ else
 {
     <h3>Editando Producto @producto.nombre</h3>
 
-
+    <div class="contenedor-form" >
     <EditForm Model="producto" OnValidSubmit="GuardarProducto">
         <DataAnnotationsValidator />
         <label class="form-control mb-3" for="txtProducto">Producto:</label>
         <input class="form-control mb-3" type="text" @bind="producto.nombre" />
-        <input class="form-control mb-3" type="text" @bind="producto.Rubro" />
+        <label class="form-control mb-3" for="rubroSelect">Rubro:</label>
+        <select class="form-control mb-3" @bind="producto.Rubro">
+            @foreach (var rubro in Enum.GetValues(typeof(RubroEnum)))
+            {
+                <option value="@rubro">@rubro.ToString()</option>
+            }
+        </select>
         <input class="form-control mb-3" type="text" @bind="producto.precioF" />
         <input class="form-control mb-3" type="text" @bind="producto.stock" />
         <ValidationSummary />
         <button class="btn btn-primary" type="submit">Guardar</button>
         <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
     </EditForm>
-
+    </div>
 
 }
 
@@ -49,7 +56,15 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        producto = await productoService.GetByIdAsync(int.Parse(idProducto));
+        try
+        {
+            producto = await productoService.GetByIdAsync(int.Parse(idProducto));
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError($"Error loading product with ID {idProducto}: {ex.Message}");
+            
+        }
     }
 
 

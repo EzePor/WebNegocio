@@ -21,6 +21,9 @@
     background-size: cover;
 }
 
+
+
+
 .bi-house-door-fill-nav-menu[b-zp64rcn9qx] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-house-door-fill' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z'/%3E%3C/svg%3E");
 }
@@ -33,9 +36,54 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
 }
 
+
+
+.bi-person-square[b-zp64rcn9qx],
+.bi-basket[b-zp64rcn9qx],
+.bi-cart-plus[b-zp64rcn9qx],
+.bi-printer[b-zp64rcn9qx],
+.bi-cash-coin[b-zp64rcn9qx],
+.bi-person-workspace[b-zp64rcn9qx],
+.bi-cart-plus[b-zp64rcn9qx],
+.bi-cart3[b-zp64rcn9qx],
+.bi-cart4[b-zp64rcn9qx],
+.bi-cart-fill[b-zp64rcn9qx],
+.bi-house-door[b-zp64rcn9qx] {
+    margin-bottom: -5px;
+    width: 9px;
+    height: 9px;
+}
+
+.nav-link[b-zp64rcn9qx] {
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--anti-flash-white);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+    .nav-link:hover[b-zp64rcn9qx] {
+        background-color: var(--fondoTabla);
+        color: var(--erie-black);
+    }
+
 .nav-item[b-zp64rcn9qx] {
     font-size: 0.9rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.navlink[b-zp64rcn9qx] {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-scrollable[b-zp64rcn9qx] {
+    height: calc(100% - 3.5rem);
+    overflow-y: auto;
 }
 
     .nav-item:first-of-type[b-zp64rcn9qx] {

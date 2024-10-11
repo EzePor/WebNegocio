@@ -1,0 +1,468 @@
+﻿@page "/crearpedidos2"
+@using Microsoft.Extensions.Logging
+@using System.Text.Json
+@using WebNegocio.Enums
+@using WebNegocio.Interfaces.Pedidos
+@using WebNegocio.Interfaces.resumenPedido
+@using WebNegocio.Pages.Commons.Impresiones
+@using WebNegocio.Pages.Commons.Productos
+@using WebNegocio.Models.Details
+
+
+@inject IGenericService<Pedido> pedidoService
+@inject IGenericService<Cliente> clienteService
+@inject IGenericService<Producto> productoService
+@inject IGenericService<Impresion> impresionService
+@inject IGenericService<ModoPago> modopagoService
+@inject IGenericService<DetalleProducto> detalleProductoService
+@inject IGenericService<DetalleImpresion> detalleImpresionService
+@inject IResumenPedidoService resumenPedidoService
+@inject ILogger<CrearPedidos2> Logger
+@inject IPedidoService pedidoService
+@inject SweetAlertService sweetAlert
+@inject NavigationManager NavigationManager
+
+
+
+
+
+<PageTitle>Gestión de Pedidos</PageTitle>
+
+<h1>Crear o Editar Pedido</h1>
+
+@if (clientes == null || productos == null || impresiones == null || modosPago == null || nuevoPedido == null)
+{
+    <p>Cargando datos...</p>
+}
+else
+{
+    <!-- Formulario del Pedido -->
+    <div class="contenedor-form">
+        <div class="row">
+            <!-- Sección Cliente -->
+            <div class="col-md-6">
+                <label for="cliente">Cliente</label>
+                <select class="form-control" @bind="nuevoPedido.ClienteId">
+                    <option value="">Seleccionar Cliente</option>
+                    @foreach (var cliente in clientes)
+                    {
+                        <option value="@cliente.id">@cliente.apellidoNombre</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Sección Modo de Pago -->
+            <div class="col-md-6">
+                <label for="modoPago">Modo de Pago</label>
+                <select class="form-control" @bind="nuevoPedido.ModoPagoId">
+                    <option value="">Seleccionar Modo de Pago</option>
+                    @foreach (var modoPago in modosPago)
+                    {
+                        <option value="@modoPago.id">@modoPago.nombre</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <!-- Fecha del Pedido -->
+            <div class="col-md-6">
+                <label for="fechaPedido">Fecha del Pedido</label>
+                <input class="form-control" type="date" @bind="nuevoPedido.fechaPedido" />
+            </div>
+
+            <!-- Estado del Pedido -->
+            <div class="col-md-6">
+                <label for="estadoPedido">Estado del Pedido</label>
+                <select class="form-control" @bind="nuevoPedido.estadoPedido">
+                    @foreach (var estado in Enum.GetValues(typeof(EstadoPedidoEnum)).Cast<EstadoPedidoEnum>())
+                    {
+                        <option value="@estado.ToString()">@estado</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <!-- Pago Realizado -->
+            <div class="col-md-6">
+                <label>Fue Pagado</label>
+                <input type="checkbox" @bind="nuevoPedido.FuePagado" />
+            </div>
+        </div>
+
+        <!-- Tabla Detalles de Productos e Impresiones -->
+        <h4>Detalles del Pedido</h4>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Producto/Impresión</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Detalles de Productos -->
+                    @foreach (var detalleProducto in nuevoPedido.DetallesProducto)
+                    {
+                        <tr>
+                            <td>@detalleProducto.producto?.nombre</td>
+                            <td>@detalleProducto.cantidad</td>
+                            <td>$ @detalleProducto.precioUnitario.ToString("F2")</td>
+                            <td>$ @detalleProducto.TotalF</td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="() => EliminarDetalle(detalleProducto)">Eliminar</button>
+                            </td>
+                        </tr>
+                    }
+                    <!-- Detalles de Impresiones -->
+                    @foreach (var detalleImpresion in nuevoPedido.DetallesImpresion)
+                    {
+                        <tr>
+                            <td>@detalleImpresion.impresion?.tamanio</td>
+                            <td>@detalleImpresion.cantidad</td>
+                            <td>$ @detalleImpresion.precioUnitario.ToString("F2")</td>
+                            <td>$ @detalleImpresion.TotalF</td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="() => EliminarDetalleImpresion(detalleImpresion)">Eliminar</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sección para Agregar Producto -->
+        <h4>Agregar Producto</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="producto">Producto</label>
+                <select class="form-control" @bind="productoSeleccionadoId">
+                    <option value="">Seleccionar Producto</option>
+                    @foreach (var producto in productos)
+                    {
+                        <option value="@producto.id">@producto.nombre</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label>Cantidad</label>
+                <input class="form-control" type="number" @bind="cantidadProducto" />
+            </div>
+
+            <div class="col-md-3">
+                <button class="btn btn-primary mt-4" @onclick="AgregarProducto">Agregar Producto</button>
+            </div>
+        </div>
+
+        <!-- Sección para Agregar Impresión -->
+        <h4>Agregar Impresión</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="impresion">Impresión</label>
+                <select class="form-control" @bind="impresionSeleccionadaId">
+                    <option value="">Seleccionar Impresión</option>
+                    @foreach (var impresion in impresiones)
+                    {
+                        <option value="@impresion.id">@impresion.tamanio</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label>Cantidad</label>
+                <input class="form-control" type="number" @bind="cantidadImpresion" />
+            </div>
+
+            <div class="col-md-3">
+                <button class="btn btn-primary mt-4" @onclick="AgregarImpresion">Agregar Impresión</button>
+            </div>
+        </div>
+
+        <!-- Mostrar el Total del Pedido -->
+        <div class="mt-3">
+            <h5>Total del Pedido: $ @nuevoPedido.TotalPedidoF</h5>
+        </div>
+
+        <!-- Botón Guardar Pedido -->
+        <div class="contenedor-botones">
+            <div class="mt-3">
+                <button class="btn btn-guardar" @onclick="GuardarPedido">Guardar Pedido</button>
+            </div>
+            <div>
+                <NavLink class="nav-link" href=@($"filtradopedidos")>
+                    <button class="btn btn-ver">Ver Pedidos</button>
+                </NavLink>
+            </div>
+            <div>
+                <NavLink class="nav-link" href=@($"nuevocliente")>
+                    <button class="btn btn-nuevo">Nuevo Cliente</button>
+                </NavLink>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    List<Cliente>? clientes;
+    List<Producto>? productos;
+    List<Impresion>? impresiones;
+    List<ModoPago>? modosPago;
+    List<DetalleProducto> detallesProducto = new List<DetalleProducto>();
+    List<DetalleImpresion> detalleImpresiones = new List<DetalleImpresion>();
+    List<Pedido>? pedidos;
+
+    Pedido nuevoPedido = new Pedido();
+    int productoSeleccionadoId;
+    int cantidadProducto;
+    int impresionSeleccionadaId;
+    int cantidadImpresion;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            clientes = await clienteService.GetAllAsync();
+            productos = await productoService.GetAllAsync();
+            impresiones = await impresionService.GetAllAsync();
+            modosPago = await modopagoService.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error al cargar datos");
+        }
+    }
+
+    // Agregar Producto al Pedido
+    private void AgregarProducto()
+    {
+        try
+        {
+            // Validar que la cantidad sea mayor a 0
+            if (cantidadProducto < 1)
+            {
+                sweetAlert.FireAsync(new SweetAlertOptions
+                    {
+                        Title = "Error",
+                        Text = $"Error, la cantidad del producto debe ser mayor a 0.",
+                        Icon = SweetAlertIcon.Error
+                    });
+                return;
+            }
+
+            var producto = productos?.FirstOrDefault(p => p.id == productoSeleccionadoId);
+            if (producto != null)
+            {
+                // Verificar si el stock es suficiente
+                if (producto.stock < cantidadProducto)
+                {
+                    sweetAlert.FireAsync(new SweetAlertOptions
+                        {
+                            Title = "Stock insuficiente",
+                            Text = $"Solo hay {producto.stock} unidades disponibles de {producto.nombre}.",
+                            Icon = SweetAlertIcon.Warning
+                        });
+                    return; // No permite agregar el producto si no hay suficiente stock
+                }
+
+                // Crear el detalle del producto si el stock es suficiente
+                var detalleProducto = new DetalleProducto
+                    {
+                        ProductoId = producto.id,
+                        cantidad = cantidadProducto,
+                        precioUnitario = producto.precio,
+                        producto = producto
+                    };
+                nuevoPedido.DetallesProducto.Add(detalleProducto);
+
+                // Resetear el formulario de producto
+                productoSeleccionadoId = 0;
+                cantidadProducto = 1;
+            }
+
+            CalcularTotalPedido();
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error al agregar producto");
+        }
+    }
+
+
+    // Agregar Impresión al Pedido
+    private void AgregarImpresion()
+    {
+        try
+        {
+            // Validar que la cantidad sea mayor a 0
+            if (cantidadImpresion < 1)
+            {
+                // Manejo de errores, puedes mostrar una alerta de error
+                sweetAlert.FireAsync(new SweetAlertOptions
+                    {
+                        Title = "Error",
+                        Text = $"Error, La cantidad del producto debe ser mayor a 0.",
+                        Icon = SweetAlertIcon.Error
+                    });
+                return;
+            }
+
+            var impresion = impresiones?.FirstOrDefault(i => i.id == impresionSeleccionadaId);
+            if (impresion != null)
+            {
+                var detalleImpresion = new DetalleImpresion
+                    {
+                        ImpresionId = impresion.id,
+                        cantidad = cantidadImpresion,
+                        precioUnitario = impresion.precioBase,
+                        impresion = impresion
+                    };
+                nuevoPedido.DetallesImpresion.Add(detalleImpresion);
+
+                // Resetear el formulario de impresión
+                impresionSeleccionadaId = 0;
+                cantidadImpresion = 1;
+            }
+            CalcularTotalPedido();
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error al agregar impresión");
+        }
+    }
+
+
+    // Eliminar Detalles
+    private void EliminarDetalle(DetalleProducto detalleProducto)
+    {
+        nuevoPedido.DetallesProducto.Remove(detalleProducto);
+        CalcularTotalPedido();
+    }
+
+    private void EliminarDetalleImpresion(DetalleImpresion detalleImpresion)
+    {
+        nuevoPedido.DetallesImpresion.Remove(detalleImpresion);
+        CalcularTotalPedido();
+    }
+
+    // Calcular Total del Pedido
+    private void CalcularTotalPedido()
+    { // Aquí calculas el total sumando los detalles del pedido e impresión.
+        decimal totalDetallesProducto = nuevoPedido.DetallesProducto.Sum(d => d.total);
+        decimal totalImpresiones = nuevoPedido.DetallesImpresion.Sum(d => d.total);
+
+        // TotalPedido se calcula automáticamente con la propiedad calculada en el modelo Pedido
+        decimal totalPedido = totalDetallesProducto + totalImpresiones;
+
+        // Puedes usar 'total' si necesitas mostrarlo o utilizarlo de alguna manera.
+        Console.WriteLine($"Total calculado: {totalPedido}");
+    }
+
+
+
+
+    // Guardar Pedido
+    private async Task GuardarPedido()
+    {
+        try
+        {
+            var pedido = new Pedido
+                {
+                    ClienteId = nuevoPedido.ClienteId,
+                    fechaPedido = DateTime.Now,
+                    ModoPagoId = nuevoPedido.ModoPagoId,
+                    estadoPedido = nuevoPedido.estadoPedido,
+                    FuePagado = nuevoPedido.FuePagado,
+                    eliminado = false,
+                    DetallesProducto = nuevoPedido.DetallesProducto.Select(dp => new DetalleProducto
+                    {
+                        ProductoId = dp.ProductoId,
+                        cantidad = dp.cantidad,
+                        precioUnitario = dp.precioUnitario,
+                        eliminado = dp.eliminado
+                    }).ToList(),
+                    DetallesImpresion = nuevoPedido.DetallesImpresion.Select(di => new DetalleImpresion
+                    {
+                        ImpresionId = di.ImpresionId,
+                        cantidad = di.cantidad,
+                        precioUnitario = di.precioUnitario,
+                        eliminado = di.eliminado
+                    }).ToList()
+                };
+
+            // Intentar guardar el pedido
+            Console.WriteLine(JsonSerializer.Serialize(pedido));
+
+            var response = await pedidoService.AddAsync(pedido);
+            Console.WriteLine("Pedido guardado correctamente"); // Log para confirmar si se llegó a guardar el pedido
+
+            if (response != null)
+            {
+                // Agregar más logs para ver la respuesta
+                Console.WriteLine($"Pedido ID: {response.id} guardado con éxito.");
+
+                // Intentar ajustar el stock
+                await pedidoService.AjustarStockAlCrearPedido(response);
+                Console.WriteLine("Stock ajustado correctamente");
+
+                // Mostrar SweetAlert de éxito
+                await sweetAlert.FireAsync(new SweetAlertOptions
+                    {
+                        Title = "PEDIDO GUARDADO !!!",
+                        Text = "El pedido se guardó correctamente.",
+                        Icon = SweetAlertIcon.Success,
+                        ConfirmButtonText = "OK"
+                    });
+
+                LimpiarFormulario();
+            }
+            else
+            {
+                Console.WriteLine("Error: No se pudo guardar el pedido.");
+                await sweetAlert.FireAsync(new SweetAlertOptions
+                    {
+                        Title = "Error",
+                        Text = "No se pudo guardar el pedido.",
+                        Icon = SweetAlertIcon.Error,
+                        ConfirmButtonText = "OK"
+                    });
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error al guardar pedido y ajustar stock");
+            Console.WriteLine($"Error al guardar pedido y ajustar stock: {ex.Message}");
+            await sweetAlert.FireAsync(new SweetAlertOptions
+                {
+                    Title = "ERROR",
+                    Text = "Ocurrió un error al guardar el pedido o ajustar el stock.",
+                    Icon = SweetAlertIcon.Error,
+                    ConfirmButtonText = "OK"
+                });
+        }
+    }
+
+
+
+
+
+
+
+
+    private void LimpiarFormulario()
+    {
+        nuevoPedido = new Pedido();  // Reiniciar la variable a un nuevo pedido vacío
+        StateHasChanged();  // Forzar la actualización del estado de la interfaz para reflejar los cambios
+    }
+
+
+
+
+}

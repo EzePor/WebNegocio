@@ -4,7 +4,7 @@
 @inject GenericService<Pedido> pedidoService
 
 
-<h3>Resumen de Pedidos</h3>
+<h1>Resumen de Pedidos</h1>
 
 @if (pedidos == null)
 {
@@ -16,6 +16,7 @@ else if (pedidos.Count == 0)
 }
 else
 {
+    <div class="contenedor-tabla">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -76,6 +77,7 @@ else
             }
         </tbody>
     </table>
+    </div>
 }
 
 @code {

@@ -1,0 +1,139 @@
+﻿@page "/pedidoscompletados"
+@using WebNegocio.Enums
+@using WebNegocio.Interfaces.Pedidos
+
+
+
+@inject IPedidoService pedidoService
+@inject NavigationManager NavigationManager
+@inject IModoPagoService modoPagoService
+@inject IClienteService clienteService
+@inject SweetAlertService sweetAlert
+
+<h1>Pedidos Completados</h1>
+
+@if (pedidosCompletados == null)
+{
+    <p>Cargando pedidos...</p>
+}
+else if (!pedidosCompletados.Any())
+{
+    <p>No hay pedidos completados.</p>
+}
+else
+{
+    <div class="contenedor-tabla" >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Fecha del Pedido</th>
+                <th>Modo de Pago</th>
+                
+                <th>Estado</th>
+                <th>Fue Pagado</th>
+                <th>Acciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(pedidosCompletados != null && pedidosCompletados.Any())
+            {
+            @foreach (var pedido in pedidosCompletados)
+            {
+
+                    // Encontrar el cliente y modo de pago correspondientes al pedido
+                    var cliente = clientes.FirstOrDefault(c => c.id == pedido.ClienteId);
+                    var modoPago = modosPago.FirstOrDefault(m => m.id == pedido.ModoPagoId);
+
+                <tr>
+                    <td>@pedido.id</td>
+                    <td>@cliente?.apellidoNombre</td>
+                    <td>@pedido?.fechaPedido.ToString("dd/MM/yyyy")</td>
+                    <td>@modoPago?.nombre</td>
+                    <td>@pedido.estadoPedido</td>
+                    <td>@(pedido.FuePagado ? "✔️" : "❌")</td> <!-- Mostrar tilde si fue pagado -->
+                    <td>
+                        <select @onchange="@(e => CambiarEstadoPedido(pedido, e))" class="form-select">
+                            @foreach (var estado in Enum.GetValues(typeof(EstadoPedidoEnum)).Cast<EstadoPedidoEnum>())
+                            {
+                                <option value="@estado.ToString()" selected="@(pedido.estadoPedido == estado)">@estado.ToString()</option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        @if (pedido.estadoPedido == EstadoPedidoEnum.Enviado)
+                        {
+                            <span class="badge bg-success">ENTREGADO</span>
+                        }
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+    </div>
+}
+
+@code {
+    private List<Pedido> pedidosCompletados;
+
+    public List<Pedido> pedidos { get; set; } = new List<Pedido>();
+    public List<Cliente> clientes { get; set; } = new List<Cliente>();
+    public List<ModoPago> modosPago { get; set; } = new List<ModoPago>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            pedidosCompletados = await pedidoService.GetPedidosPorEstadoAsync("Completado") ?? new List<Pedido>();
+
+            // Obtener todos los clientes
+            clientes = await clienteService.GetClienteAsync() ?? new List<Cliente>();
+
+            // Obtener todos los modos de pago
+            modosPago = await modoPagoService.GetModosPagoAsync() ?? new List<ModoPago>();
+
+
+            Console.WriteLine("Pedidos obtenidos:");
+            pedidosCompletados.ForEach(pedido => Console.WriteLine($"Pedido ID: {pedido.id}, Estado: {pedido.estadoPedido}"));
+
+            Console.WriteLine($"Total de pedidos recibidos: {pedidosCompletados?.Count}");
+            foreach (var pedido in pedidosCompletados)
+            {
+                Console.WriteLine($"Pedido ID: {pedido?.id}, Cliente ID: {pedido?.ClienteId}, Total: {pedido?.TotalPedido}");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al obtener pedidos: {ex.Message}");
+            pedidosCompletados = new List<Pedido>(); // Asegúrate de que la lista no sea null
+        }
+
+    }
+
+    private async Task CambiarEstadoPedido(Pedido pedido, ChangeEventArgs e)
+    {
+        var nuevoEstado = e.Value.ToString();
+
+        if (nuevoEstado == EstadoPedidoEnum.Enviado.ToString())
+        {
+            pedido.estadoPedido = EstadoPedidoEnum.Enviado;
+
+            try
+            {
+                await pedidoService.UpdatePedidoAsync(pedido);
+                await sweetAlert.FireAsync("Estado Actualizado", "El estado del pedido ha sido cambiado a Enviado", SweetAlertIcon.Success);
+
+                // Forzar la actualización de la UI
+                StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                await sweetAlert.FireAsync("Error", $"Ocurrió un error al actualizar el pedido: {ex.Message}", SweetAlertIcon.Error);
+            }
+        }
+    }
+}

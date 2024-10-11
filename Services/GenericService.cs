@@ -19,6 +19,8 @@ namespace WebNegocio.Services
             _endpoint = ApiEndPoints.GetEndPoint(typeof(T).Name);
         }
 
+        
+
         public async Task<List<T>?> GetAllAsync()
         {
             var response = await client.GetAsync(_endpoint);
@@ -33,10 +35,10 @@ namespace WebNegocio.Services
         public async Task<T?> GetByIdAsync(int id)
         {
             var response = await client.GetAsync($"{_endpoint}/{id}");
-            var content = await response.Content.ReadAsStreamAsync();
+            var content = await response.Content.ReadAsStringAsync(); // Cambia a string para manejar mejor el error
             if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException(content?.ToString());
+                throw new ApplicationException($"Error: {response.StatusCode}, Detalle: {content}");
             }
             return JsonSerializer.Deserialize<T>(content, options);
         }
@@ -54,7 +56,7 @@ namespace WebNegocio.Services
 
         public async Task UpdateAsync(T? entity)
         {
-            var idValue = entity.GetType().GetProperty("Id").GetValue(entity);
+            var idValue = entity.GetType().GetProperty("id").GetValue(entity);
 
             var response = await client.PutAsJsonAsync($"{_endpoint}/{idValue}", entity);
             if (!response.IsSuccessStatusCode)
@@ -69,6 +71,7 @@ namespace WebNegocio.Services
             if (!response.IsSuccessStatusCode)
             {
                 throw new ApplicationException(response.ToString());
+               
             }
         }
 

@@ -1,4 +1,6 @@
 ﻿@page "/nuevoproducto"
+@using WebNegocio.Enums
+
 
 
 @inject NavigationManager NavigationManager
@@ -15,12 +17,19 @@
 }
 else
 {
-    <h3 >Cargando nuevo producto/a @producto.nombre</h3>
+    <h3 >Cargando nuevo producto @producto.nombre</h3>
+    <div class="contenedor-form" >
     <EditForm Model="producto" OnValidSubmit="GuardarProducto">
         <DataAnnotationsValidator />
         <label class="form-control mb-3" for="txtProducto">Productos:</label>
         <input class="form-control mb-3" type="text" placeholder=" Nombre" @bind="producto.nombre" />
-        <input class="form-control mb-3" type="text" placeholder="Rubro" @bind="producto.Rubro" />
+        <label class="form-control mb-3" for="rubroSelect">Rubro:</label>
+        <select class="form-control mb-3" id="rubroSelect" @bind="producto.Rubro">
+            @foreach (var rubro in Enum.GetValues(typeof(RubroEnum)))
+            {
+                <option value="@rubro">@rubro</option>
+            }
+        </select>
         <input class="form-control mb-3" type="text" placeholder="Precio" @bind="producto.precioF" />
         <input class="form-control mb-3" type="text" placeholder="Stock" @bind="producto.stock" />
       
@@ -28,6 +37,7 @@ else
         <button class="btn btn-primary" type="submit">Guardar</button>
         <button class="btn btn-secondary m-3" type="button" @onclick="Volver">Cancelar</button>
     </EditForm>
+    </div>
 }
 
 
@@ -48,8 +58,16 @@ else
     // guarda información del formulario editar
     private async Task GuardarProducto()
     {
-        var response = await productoService.AddAsync(producto);
-        NavigationManager.NavigateTo("/productos");
+        try
+        {
+            Console.WriteLine($"Guardando producto: {producto.nombre} - Rubro: {producto.Rubro}");
+            var response = await productoService.AddAsync(producto);
+            NavigationManager.NavigateTo("/productos");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al guardar el producto: {ex.Message}");
+        }
 
     }
 
