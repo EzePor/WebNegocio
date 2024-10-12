@@ -36,3 +36,7 @@ p {
     padding: 7px;
     color: black;
 }
+
+.form-group {
+    margin-top: 10px;
+}

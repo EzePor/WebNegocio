@@ -1,20 +1,15 @@
 ﻿@page "/clientes"
 @using CurrieTechnologies.Razor.SweetAlert2
 
-
 @inject IGenericService<Cliente> clienteService
 @inject SweetAlertService SweetAlert
 
-
 <PageTitle>Clientes</PageTitle>
-
 
 <h1>Clientes</h1>
 
-
 @if (clientes == null)
 {
-    //@attribute [StreamRendering]
     <p><em>Cargando...</em></p>
 }
 else
@@ -23,8 +18,13 @@ else
         <i class="bi bi-plus-square"></i>
         Nuevo Cliente
     </NavLink>
-    <div class="contenedor-tabla">
 
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar por nombre..." @oninput="OnSearchInput" />
+        <button type="button" class="btn-limpiar" @onclick="ClearSearch">Limpiar</button>
+    </div>
+
+    <div class="contenedor-tabla">
         <table class="table">
             <thead>
                 <tr>
@@ -37,11 +37,11 @@ else
                     <th>Localidad</th>
                     <th>Código Postal</th>
                     <th>Provincia</th>
-
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var cliente in clientes)
+                @foreach (var cliente in FiltrarClientes(clientes))
                 {
                     <tr>
                         <td>@cliente.id</td>
@@ -53,55 +53,64 @@ else
                         <td>@cliente.Localidad</td>
                         <td>@cliente.CodigoPostal</td>
                         <td>@cliente.Provincia</td>
-                        <td><NavLink class="editar" href=@($"editarcliente?idCliente={cliente.id}")>
+                        <td>
+                            <NavLink class="editar" href=@($"editarcliente?idCliente={cliente.id}")>
                                 <i title="editar" class="bi bi-pencil-square"></i>
-                        </NavLink></td>
-                        
-                         <td>
-                            <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(cliente)"><i class="bi bi-trash3-fill"></i><span></span></button>
+                            </NavLink>
+                            <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(cliente)">
+                                <i class="bi bi-trash3-fill"></i>
+                                <span></span>
+                            </button>
                         </td>
-                        
                     </tr>
                 }
             </tbody>
         </table>
-
-
     </div>
-
-
 }
 
-
-
 @code {
-     private List<Cliente>? clientes;
+    private List<Cliente>? clientes;
+    private string searchTerm = string.Empty; // Propiedad para almacenar el término de búsqueda
 
     protected override async Task OnInitializedAsync()
     {
-       
-       clientes = await clienteService.GetAllAsync();
+        clientes = await clienteService.GetAllAsync();
     }
 
+    private IEnumerable<Cliente> FiltrarClientes(IEnumerable<Cliente> clientes)
+    {
+        if (string.IsNullOrWhiteSpace(searchTerm))
+            return clientes;
+
+        return clientes.Where(c => c.apellidoNombre.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private void OnSearchInput(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString() ?? string.Empty; // Manejo de null
+    }
+
+    private void ClearSearch()
+    {
+        searchTerm = string.Empty; // Resetea el término de búsqueda
+    }
 
     private async void Eliminar(Cliente cliente)
     {
         SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
             {
-                Title = "Borrando Alumno",
-                Text = $"¿Está seguro/ que desea borrar a {cliente.apellidoNombre}",
+                Title = "Borrando Cliente",
+                Text = $"¿Está seguro de que desea borrar a {cliente.apellidoNombre}?",
                 Icon = SweetAlertIcon.Warning,
                 ShowCancelButton = true,
-                ConfirmButtonText = "Si, quiero borrarlo!",
+                ConfirmButtonText = "Sí, quiero borrarlo!",
                 CancelButtonText = "No, espera"
             });
         if (respuesta.IsConfirmed)
         {
             await clienteService.DeleteAsync(cliente.id);
             clientes = await clienteService.GetAllAsync();
-            StateHasChanged();
         }
     }
-
-  
 }

@@ -62,7 +62,7 @@
     font-weight: 500;
     transition: background-color 0.3s, color 0.3s;
     padding: 6px 10px;
-    border-radius: 6px;
+    border-radius: 6px 6px;
 }
 
     .nav-link:hover[b-zp64rcn9qx] {

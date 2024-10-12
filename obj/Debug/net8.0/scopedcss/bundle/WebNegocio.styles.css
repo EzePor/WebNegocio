@@ -141,7 +141,7 @@ main[b-136tc4i9hy] {
     font-weight: 500;
     transition: background-color 0.3s, color 0.3s;
     padding: 6px 10px;
-    border-radius: 6px;
+    border-radius: 6px 6px;
 }
 
     .nav-link:hover[b-zp64rcn9qx] {
@@ -247,6 +247,10 @@ p[b-ikcb6ciiaj] {
     padding: 7px;
     color: black;
     margin-top:15px;
+}
+
+.form-group[b-ikcb6ciiaj] {
+    margin-top: 10px;
 }
 /* /Pages/Commons/Clientes/EditarCliente.razor.rz.scp.css */
 h1[b-uirv2wi5f0] {
@@ -785,6 +789,10 @@ p[b-ii3y782yvk] {
     margin-top: 30px;
     padding: 7px;
     color: black;
+}
+
+.form-group[b-ii3y782yvk] {
+    margin-top: 10px;
 }
 /* /Pages/Details/completadosestadopagado/PedidosCompletosDuo.razor.rz.scp.css */
 h1[b-5yh36v7cg3] {

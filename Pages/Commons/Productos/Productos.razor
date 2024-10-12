@@ -1,45 +1,42 @@
 ﻿@page "/productos"
 
-
-
 @inject IGenericService<Producto> productoService
 @inject SweetAlertService SweetAlert
 
-
 <PageTitle>Productos</PageTitle>
-
 
 <h1>Productos</h1>
 
-
 @if (productos == null)
 {
-    //@attribute [StreamRendering]
     <p><em>Cargando...</em></p>
 }
 else
 {
     <NavLink class="nuevo" href="nuevoproducto">
         <i class="bi bi-plus-square"></i>
-         Producto
+        Nuevo Producto
     </NavLink>
-    <div class="contenedor-tabla">
 
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar por nombre..." @oninput="OnSearchInput" />
+        <button type="button" class="btn-limpiar" @onclick="ClearSearch">Limpiar</button>
+    </div>
+
+    <div class="contenedor-tabla">
         <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th> Nombre</th>
+                    <th>Nombre</th>
                     <th>Rubro</th>
                     <th>Precio</th>
                     <th>Stock</th>
-                    <th></th>
-                    <th></th>
-                    
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var producto in productos)
+                @foreach (var producto in FiltrarProductos(productos))
                 {
                     <tr>
                         <td>@producto.id</td>
@@ -47,58 +44,63 @@ else
                         <td>@producto.Rubro</td>
                         <td>$ @producto.precio.ToString("F2")</td>
                         <td>@producto.stock</td>
-                        <td></td>
-                        <td></td>
-                        
-                        <td><NavLink class="editar" href=@($"editarproducto?idProducto={producto.id}")>
-                           <i title="editar" class="bi bi-pencil-square"></i>
-                        </NavLink></td>
-                        
-                         <td>
-                            <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(producto)"><i class="bi bi-trash3-fill"></i><span class=""></span></button>
-                         </td>
-                        
+                        <td>
+                            <NavLink class="editar" href=@($"editarproducto?idProducto={producto.id}")>
+                                <i title="editar" class="bi bi-pencil-square"></i>
+                            </NavLink>
+                            <button title="Eliminar" class="eliminar" @onclick="()=>Eliminar(producto)">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </td>
                     </tr>
                 }
             </tbody>
         </table>
-
-
     </div>
-
-
 }
 
-
-
 @code {
-     private List<Producto>? productos;
+    private List<Producto>? productos;
+    private string searchTerm = string.Empty; // Propiedad para almacenar el término de búsqueda
 
     protected override async Task OnInitializedAsync()
     {
-       
-       productos = await productoService.GetAllAsync();
+        productos = await productoService.GetAllAsync();
     }
 
+    private IEnumerable<Producto> FiltrarProductos(IEnumerable<Producto> productos)
+    {
+        if (string.IsNullOrWhiteSpace(searchTerm))
+            return productos;
+
+        return productos.Where(p => p.nombre.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private void OnSearchInput(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString() ?? string.Empty; // Manejo de null
+    }
+
+    private void ClearSearch()
+    {
+        searchTerm = string.Empty; // Resetea el término de búsqueda
+    }
 
     private async void Eliminar(Producto producto)
     {
         SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
             {
-                Title = "Borrando producto",
-                Text = $"¿Está seguro/ que desea borrar  {producto.nombre}",
+                Title = "Borrando Producto",
+                Text = $"¿Está seguro de que desea borrar {producto.nombre}?",
                 Icon = SweetAlertIcon.Warning,
                 ShowCancelButton = true,
-                ConfirmButtonText = "Si, quiero borrarlo!",
+                ConfirmButtonText = "Sí, quiero borrarlo!",
                 CancelButtonText = "No, espera"
             });
         if (respuesta.IsConfirmed)
         {
             await productoService.DeleteAsync(producto.id);
             productos = await productoService.GetAllAsync();
-            StateHasChanged();
         }
     }
-
-  
 }
