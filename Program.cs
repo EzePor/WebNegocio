@@ -42,6 +42,10 @@ builder.Services.AddScoped<ModoPagoService>();
 
 builder.Services.AddScoped<SweetAlertService>();
 
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<FileService>();
+
+
 
 
 

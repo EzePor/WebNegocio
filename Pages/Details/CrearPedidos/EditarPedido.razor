@@ -189,9 +189,16 @@ else
     </div>
 
     <!-- Botón Guardar Pedido -->
+    <div class="contenedor-botones">
     <div class="mt-3">
         <button class="btn btn-success" @onclick="GuardarPedido">Guardar Pedido</button>
     </div>
+    <div>
+        <NavLink class="nav-link" href=@($"filtradopedidos")>
+                    <button class="btn btn-secondary">Cancelar</button>
+        </NavLink>
+            </div>
+        </div>
     </div>
 }
 

@@ -85,6 +85,13 @@ html, body {
         color: darkblue; /* Color al hacer hover */
     }
 
+    .contenedor-botones{
+        display: flex;
+        justify-content: space-around;
+        align-items:center;
+       
+    }
+
     h1:focus {
         outline: none;
     }
@@ -184,3 +191,5 @@ a, .btn-link {
 code {
     color: #c02d76;
 }
+
+

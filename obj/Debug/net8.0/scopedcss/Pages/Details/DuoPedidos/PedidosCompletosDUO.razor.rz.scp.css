@@ -1,4 +1,4 @@
-h1[b-lx5nzooot1] {
+h1[b-156ugpgz6f] {
     color: tomato;
     border-bottom: 2px solid tomato;
     text-shadow: 0 0 5px tomato, /* Sombra cercana */
@@ -13,12 +13,12 @@ h1[b-lx5nzooot1] {
     text-stroke: 1px white; /* Soporte en navegadores modernos */
 }
 
-p[b-lx5nzooot1] {
+p[b-156ugpgz6f] {
     color: white;
     font-size: xx-large;
 }
 
-.contenedor-tabla[b-lx5nzooot1] {
+.contenedor-tabla[b-156ugpgz6f] {
     display: flex;
     background-color: bisque;
     padding: 10px;
@@ -27,7 +27,7 @@ p[b-lx5nzooot1] {
 }
 
 
-.contenedor-form[b-lx5nzooot1] {
+.contenedor-form[b-156ugpgz6f] {
     background-color: bisque;
     border-radius: 8px;
     box-shadow: 2px 2px 2px 2px;
@@ -35,12 +35,12 @@ p[b-lx5nzooot1] {
     padding: 7px;
     color: black;
 }
-.contenedor-botones[b-lx5nzooot1]{
+.contenedor-botones[b-156ugpgz6f]{
     display:flex; 
     justify-content:space-around;
 }
 
-.btn-ver[b-lx5nzooot1]{
+.btn-ver[b-156ugpgz6f]{
     background-color: yellowgreen;
     margin-top:15px;
     font-weight:bold;
@@ -48,18 +48,18 @@ p[b-lx5nzooot1] {
 
 }
 
-.btn-ver:hover[b-lx5nzooot1]{
+.btn-ver:hover[b-156ugpgz6f]{
     background-color:darkgreen;
     color:white;
 }
 
-.btn-guardar[b-lx5nzooot1] {
+.btn-guardar[b-156ugpgz6f] {
     background-color:springgreen;
     margin: 10px;
     font-weight: bold;
 }
 
-.btn-guardar:hover[b-lx5nzooot1] {
+.btn-guardar:hover[b-156ugpgz6f] {
     background-color: darkolivegreen;
     color: white;
 }

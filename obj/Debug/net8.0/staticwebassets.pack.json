@@ -49,6 +49,38 @@
       "PackagePath": "staticwebassets\\icon-512.png"
     },
     {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen1.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen1.jpg"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen2.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen2.jpg"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen3.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen3.jpg"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen4.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen4.jpg"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen5.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen5.jpg"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen6.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen6.jpg"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen7.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen7.jpg"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\carrusel\\imagen8.jpg",
+      "PackagePath": "staticwebassets\\img\\carrusel\\imagen8.jpg"
+    },
+    {
       "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

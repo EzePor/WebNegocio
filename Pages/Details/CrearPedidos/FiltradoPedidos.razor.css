@@ -76,4 +76,24 @@ button {
     font-weight: bold;
 }
 
+button.editar{
+    background-color: transparent;
+}
 
+button.eliminar {
+    background-color: transparent;
+    margin-top:5px;;
+}
+
+button.detalle {
+    background-color: transparent;
+    color: darkgreen;
+    height: 28px;
+    margin-top: 8px;
+}
+
+button.detalle i {
+    font-size: 1.5rem; /* Ajusta el tamaño del ícono si es necesario */
+    color: forestgreen; /* Cambia el color del ícono */
+    transition: color 0.3s; /* Agrega una transición suave al cambiar de color */
+}

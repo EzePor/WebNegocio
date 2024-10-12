@@ -443,6 +443,78 @@ p[b-jfpi0q4cct] {
     padding: 7px;
     color: black;
 }
+/* /Pages/Commons/Footer/Footer.razor.rz.scp.css */
+h1[b-3a6pg6twlh] {
+    color: tomato;
+    border-bottom: 2px solid tomato;
+    text-shadow: 0 0 5px tomato, /* Sombra cercana */
+    0 0 10px tomato, /* Sombra intermedia */
+    0 0 20px tomato, /* Sombra m�s amplia */
+    0 0 40px red, /* Brillo rojizo */
+    0 0 60px red, /* Brillo m�s intenso */
+    0 0 80px crimson; /* Sombra externa grande */
+    font-weight: bold;
+    /* Agregar el borde fino al texto */
+    -webkit-text-stroke: 1px white; /* Soporte en navegadores Webkit */
+    text-stroke: 1px white; /* Soporte en navegadores modernos */
+}
+
+p[b-3a6pg6twlh] {
+    color: white;
+    font-size: large;
+}
+
+.contenedor-tabla[b-3a6pg6twlh] {
+    display: flex;
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top: 15px;
+}
+
+
+.contenedor-form[b-3a6pg6twlh] {
+    background-color: bisque;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top: 10px;
+    padding: 7px;
+    color: black;
+    margin-top:15px;
+}
+
+.form-group[b-3a6pg6twlh] {
+    margin-top: 10px;
+}
+
+.carousel-inner img[b-3a6pg6twlh] {
+    object-fit: cover;
+    height: 350px; /* Ajusta la altura seg�n tus necesidades */
+}
+
+.container[b-3a6pg6twlh] {
+    max-width: 800px;
+    margin: auto;
+}
+
+.footer[b-3a6pg6twlh] {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+    .footer a[b-3a6pg6twlh] {
+        text-decoration: none;
+    }
+
+    .footer i[b-3a6pg6twlh] {
+        transition: color 0.3s;
+    }
+
+        .footer i:hover[b-3a6pg6twlh] {
+            color: #f39c12;
+        }
 /* /Pages/Commons/Impresiones/EditarImpresion.razor.rz.scp.css */
 h1[b-gucph5vx56] {
     color: tomato;
@@ -559,6 +631,55 @@ p[b-5vyov1zohq] {
     margin-top: 10px;
     padding: 7px;
     color: black;
+}
+/* /Pages/Commons/Inicio/inicio.razor.rz.scp.css */
+h1[b-785qnmpo8p] {
+    color: tomato;
+    border-bottom: 2px solid tomato;
+    text-shadow: 0 0 5px tomato, /* Sombra cercana */
+    0 0 10px tomato, /* Sombra intermedia */
+    0 0 20px tomato, /* Sombra m�s amplia */
+    0 0 40px red, /* Brillo rojizo */
+    0 0 60px red, /* Brillo m�s intenso */
+    0 0 80px crimson; /* Sombra externa grande */
+    font-weight: bold;
+    /* Agregar el borde fino al texto */
+    -webkit-text-stroke: 1px white; /* Soporte en navegadores Webkit */
+    text-stroke: 1px white; /* Soporte en navegadores modernos */
+}
+
+p[b-785qnmpo8p] {
+    color: white;
+    font-size: xx-large;
+}
+
+.contenedor-tabla[b-785qnmpo8p] {
+    display: flex;
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top: 15px;
+}
+
+
+.contenedor-form[b-785qnmpo8p] {
+    background-color: bisque;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top: 10px;
+    padding: 7px;
+    color: black;
+    margin-top:15px;
+}
+
+.form-group[b-785qnmpo8p] {
+    margin-top: 10px;
+}
+
+.carousel-inner img[b-785qnmpo8p] {
+    object-fit: cover;
+    height: 350px; /* Ajusta la altura seg�n tus necesidades */
 }
 /* /Pages/Commons/ModosPagos/EditarModoPago.razor.rz.scp.css */
 h1[b-8kyyvh0a6c] {
@@ -794,8 +915,8 @@ p[b-ii3y782yvk] {
 .form-group[b-ii3y782yvk] {
     margin-top: 10px;
 }
-/* /Pages/Details/completadosestadopagado/PedidosCompletosDuo.razor.rz.scp.css */
-h1[b-5yh36v7cg3] {
+/* /Pages/Details/Completadosestadopagado/PedidosCompletos.razor.rz.scp.css */
+h1[b-h61ysrm1f6] {
     color: tomato;
     border-bottom: 2px solid tomato;
     text-shadow: 0 0 5px tomato, /* Sombra cercana */
@@ -810,12 +931,12 @@ h1[b-5yh36v7cg3] {
     text-stroke: 1px white; /* Soporte en navegadores modernos */
 }
 
-p[b-5yh36v7cg3] {
+p[b-h61ysrm1f6] {
     color: white;
     font-size: xx-large;
 }
 
-.contenedor-tabla[b-5yh36v7cg3] {
+.contenedor-tabla[b-h61ysrm1f6] {
     display: flex;
     background-color: bisque;
     padding: 10px;
@@ -824,7 +945,7 @@ p[b-5yh36v7cg3] {
 }
 
 
-.contenedor-form[b-5yh36v7cg3] {
+.contenedor-form[b-h61ysrm1f6] {
     background-color: bisque;
     border-radius: 8px;
     box-shadow: 2px 2px 2px 2px;
@@ -832,12 +953,12 @@ p[b-5yh36v7cg3] {
     padding: 7px;
     color: black;
 }
-.contenedor-botones[b-5yh36v7cg3]{
+.contenedor-botones[b-h61ysrm1f6]{
     display:flex; 
     justify-content:space-around;
 }
 
-.btn-ver[b-5yh36v7cg3]{
+.btn-ver[b-h61ysrm1f6]{
     background-color: yellowgreen;
     margin-top:15px;
     font-weight:bold;
@@ -845,18 +966,18 @@ p[b-5yh36v7cg3] {
 
 }
 
-.btn-ver:hover[b-5yh36v7cg3]{
+.btn-ver:hover[b-h61ysrm1f6]{
     background-color:darkgreen;
     color:white;
 }
 
-.btn-guardar[b-5yh36v7cg3] {
+.btn-guardar[b-h61ysrm1f6] {
     background-color:springgreen;
     margin: 10px;
     font-weight: bold;
 }
 
-.btn-guardar:hover[b-5yh36v7cg3] {
+.btn-guardar:hover[b-h61ysrm1f6] {
     background-color: darkolivegreen;
     color: white;
 }
@@ -974,6 +1095,10 @@ p[b-6vys3sk4uf] {
     padding: 7px;
     color: black;
 }
+
+.btn-secondary[b-6vys3sk4uf]{
+    padding:6px 22px;
+}
 /* /Pages/Details/CrearPedidos/FiltradoPedidos.razor.rz.scp.css */
 h1[b-rbolat9v00] {
     color: tomato;
@@ -1053,72 +1178,26 @@ button[b-rbolat9v00] {
     font-weight: bold;
 }
 
-
-/* /Pages/Details/CrearPedidos/PedidosCompletos.razor.rz.scp.css */
-h1[b-lx5nzooot1] {
-    color: tomato;
-    border-bottom: 2px solid tomato;
-    text-shadow: 0 0 5px tomato, /* Sombra cercana */
-    0 0 10px tomato, /* Sombra intermedia */
-    0 0 20px tomato, /* Sombra m�s amplia */
-    0 0 40px red, /* Brillo rojizo */
-    0 0 60px red, /* Brillo m�s intenso */
-    0 0 80px crimson; /* Sombra externa grande */
-    font-weight: bold;
-    /* Agregar el borde fino al texto */
-    -webkit-text-stroke: 1px white; /* Soporte en navegadores Webkit */
-    text-stroke: 1px white; /* Soporte en navegadores modernos */
+button.editar[b-rbolat9v00]{
+    background-color: transparent;
 }
 
-p[b-lx5nzooot1] {
-    color: white;
-    font-size: xx-large;
+button.eliminar[b-rbolat9v00] {
+    background-color: transparent;
+    margin-top:5px;;
 }
 
-.contenedor-tabla[b-lx5nzooot1] {
-    display: flex;
-    background-color: bisque;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 2px 2px;
+button.detalle[b-rbolat9v00] {
+    background-color: transparent;
+    color: darkgreen;
+    height: 28px;
+    margin-top: 8px;
 }
 
-
-.contenedor-form[b-lx5nzooot1] {
-    background-color: bisque;
-    border-radius: 8px;
-    box-shadow: 2px 2px 2px 2px;
-    margin-top: 10px;
-    padding: 7px;
-    color: black;
-}
-.contenedor-botones[b-lx5nzooot1]{
-    display:flex; 
-    justify-content:space-around;
-}
-
-.btn-ver[b-lx5nzooot1]{
-    background-color: yellowgreen;
-    margin-top:15px;
-    font-weight:bold;
-
-
-}
-
-.btn-ver:hover[b-lx5nzooot1]{
-    background-color:darkgreen;
-    color:white;
-}
-
-.btn-guardar[b-lx5nzooot1] {
-    background-color:springgreen;
-    margin: 10px;
-    font-weight: bold;
-}
-
-.btn-guardar:hover[b-lx5nzooot1] {
-    background-color: darkolivegreen;
-    color: white;
+button.detalle i[b-rbolat9v00] {
+    font-size: 1.5rem; /* Ajusta el tama�o del �cono si es necesario */
+    color: forestgreen; /* Cambia el color del �cono */
+    transition: color 0.3s; /* Agrega una transici�n suave al cambiar de color */
 }
 /* /Pages/Details/DuoPedidos/CrearPedidos2.razor.rz.scp.css */
 .contenedor-botones[b-qpn8up1ug1] {
@@ -1195,6 +1274,72 @@ p[b-qpn8up1ug1] {
     margin-top: 10px;
     padding: 7px;
     color: black;
+}
+/* /Pages/Details/DuoPedidos/PedidosCompletosDUO.razor.rz.scp.css */
+h1[b-156ugpgz6f] {
+    color: tomato;
+    border-bottom: 2px solid tomato;
+    text-shadow: 0 0 5px tomato, /* Sombra cercana */
+    0 0 10px tomato, /* Sombra intermedia */
+    0 0 20px tomato, /* Sombra m�s amplia */
+    0 0 40px red, /* Brillo rojizo */
+    0 0 60px red, /* Brillo m�s intenso */
+    0 0 80px crimson; /* Sombra externa grande */
+    font-weight: bold;
+    /* Agregar el borde fino al texto */
+    -webkit-text-stroke: 1px white; /* Soporte en navegadores Webkit */
+    text-stroke: 1px white; /* Soporte en navegadores modernos */
+}
+
+p[b-156ugpgz6f] {
+    color: white;
+    font-size: xx-large;
+}
+
+.contenedor-tabla[b-156ugpgz6f] {
+    display: flex;
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+}
+
+
+.contenedor-form[b-156ugpgz6f] {
+    background-color: bisque;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px;
+    margin-top: 10px;
+    padding: 7px;
+    color: black;
+}
+.contenedor-botones[b-156ugpgz6f]{
+    display:flex; 
+    justify-content:space-around;
+}
+
+.btn-ver[b-156ugpgz6f]{
+    background-color: yellowgreen;
+    margin-top:15px;
+    font-weight:bold;
+
+
+}
+
+.btn-ver:hover[b-156ugpgz6f]{
+    background-color:darkgreen;
+    color:white;
+}
+
+.btn-guardar[b-156ugpgz6f] {
+    background-color:springgreen;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.btn-guardar:hover[b-156ugpgz6f] {
+    background-color: darkolivegreen;
+    color: white;
 }
 /* /Pages/Details/FiltradoPedidos/FiltradoPedidosD.razor.rz.scp.css */
 h1[b-kd4h1usbvm]{

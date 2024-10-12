@@ -93,20 +93,20 @@ else
                     </td>
 
                     <td>
-                        <button class="btn btn-primary" @onclick="() => ToggleDetalle(pedido.id)">
-                            Ver Detalles
+                        <button title="detalle" class="detalle" @onclick="() => ToggleDetalle(pedido.id)">
+                            <i class="bi bi-journal-text"></i>
                         </button>
                     </td>
                     <td>
                         <NavLink class="nav-link" href=@($"editarpedido?idPedido={pedido.id}")>
-                            <button class="btn btn-warning" >
-                            Editar
+                            <button title="editar" class="editar" >
+                           <i title="editar" class="bi bi-pencil-square"></i>
                         </button>
                         </NavLink>
                         </td
                      <td>
-                        <button class="btn btn-danger" @onclick="() => EliminarPedido(pedido.id)">
-                            Eliminar
+                        <button title="eliminar" class="eliminar" @onclick="() => EliminarPedido(pedido.id)">
+                           <i class="bi bi-trash3-fill"></i>
                         </button>
                     </td>
                 </tr>

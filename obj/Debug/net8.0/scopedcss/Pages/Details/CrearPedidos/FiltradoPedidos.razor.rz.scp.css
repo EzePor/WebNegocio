@@ -76,4 +76,24 @@ button[b-rbolat9v00] {
     font-weight: bold;
 }
 
+button.editar[b-rbolat9v00]{
+    background-color: transparent;
+}
 
+button.eliminar[b-rbolat9v00] {
+    background-color: transparent;
+    margin-top:5px;;
+}
+
+button.detalle[b-rbolat9v00] {
+    background-color: transparent;
+    color: darkgreen;
+    height: 28px;
+    margin-top: 8px;
+}
+
+button.detalle i[b-rbolat9v00] {
+    font-size: 1.5rem; /* Ajusta el tama�o del �cono si es necesario */
+    color: forestgreen; /* Cambia el color del �cono */
+    transition: color 0.3s; /* Agrega una transici�n suave al cambiar de color */
+}

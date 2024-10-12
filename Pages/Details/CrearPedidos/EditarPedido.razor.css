@@ -35,3 +35,7 @@ p {
     padding: 7px;
     color: black;
 }
+
+.btn-secondary{
+    padding:6px 22px;
+}

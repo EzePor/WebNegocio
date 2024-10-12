@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-BmXu5pJg+PuS0kQuyqOaBp4Ki6\/+rq4WuENQGfefLP0=",
+      "hash": "sha256-BtcHa+Dr+XMcxcQ1SAp\/XeYDSA2u4zs9kK4yyfsVc7E=",
       "url": "css\/app.css"
     },
     {
@@ -25,7 +25,39 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-8KKfga5yjiu2e0GWBieL8OdLFlxfXK+GtHsEJsm8YUE=",
+      "hash": "sha256-+oZksA5JaqKpyH1uYnzOnc7AqrWsAXVh6KC9usayBDc=",
+      "url": "img\/carrusel\/imagen1.jpg"
+    },
+    {
+      "hash": "sha256-2yw\/SZjv1zAfzepy7ga1HDqb0Z4mx9yQEQRuMCXCUr0=",
+      "url": "img\/carrusel\/imagen2.jpg"
+    },
+    {
+      "hash": "sha256-h1kk96ArcDbdMY6Lib5QDjd8z\/1YG0UmXY1MXd+1UbY=",
+      "url": "img\/carrusel\/imagen3.jpg"
+    },
+    {
+      "hash": "sha256-Q0wolNZUBgUni4kHmPsZIESkcQHj2DxMg\/WIJUnGu4c=",
+      "url": "img\/carrusel\/imagen4.jpg"
+    },
+    {
+      "hash": "sha256-g6TUX2\/UqTS47LX\/9r62E8cA8Q4wz0UxrT3wb0ugPtQ=",
+      "url": "img\/carrusel\/imagen5.jpg"
+    },
+    {
+      "hash": "sha256-CAmrribQYafjbZadA7QrWv4OnbIUyP7MA5fUQCtUb4Y=",
+      "url": "img\/carrusel\/imagen6.jpg"
+    },
+    {
+      "hash": "sha256-PX9MY+aq\/56t9f814Y7I30N2+jx7aY\/w1eQ7N92\/QMs=",
+      "url": "img\/carrusel\/imagen7.jpg"
+    },
+    {
+      "hash": "sha256-InxORXtoFREGABZZEpwNs8E9TjTLfUTLZ76kNAonC9g=",
+      "url": "img\/carrusel\/imagen8.jpg"
+    },
+    {
+      "hash": "sha256-hA9wSbQPg3nZBtvZ7px19p+OUAy6rZsqfmHQuLt8oPY=",
       "url": "index.html"
     },
     {
@@ -45,7 +77,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-ksGeOtsjXXzkofXtElF+JwITG0mjfGruzRR5FGJVmDg=",
+      "hash": "sha256-k\/Q2OE7Mu3SEAU0xZ2oHbv1hYbfZz4vNRSoYFBJhov0=",
       "url": "WebNegocio.styles.css"
     },
     {
@@ -853,15 +885,15 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-GAqTVAPp+Xv7OKh1G5q5C3IaabnVL76MGLBfIr22CnU=",
+      "hash": "sha256-c5l0qGuX7fDWeGGhoXC9YXqrVrr98rMtITPtjrsBorY=",
       "url": "_framework\/WebNegocio.wasm"
     },
     {
-      "hash": "sha256-WrIHbi7b2MXUC4EXA7yC309RZCTN+ijFO1ClMUEZwKo=",
+      "hash": "sha256-TO2tSG9oquK4ZBIeOdmH43ymQUN0VfxE2PW1yJlqC5w=",
       "url": "_framework\/WebNegocio.pdb"
     },
     {
-      "hash": "sha256-+ersn0TpHvbrGXhYXIsH60c1rMG12HUOW6d3bvEOQY8=",
+      "hash": "sha256-nOAXgZTydZUZezcBVLzSDguMXnI0ru0BMrfZC37cnAc=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1001,5 +1033,5 @@
       "url": "_content\/CurrieTechnologies.Razor.SweetAlert2\/wordpressAdminTheme.min.js"
     }
   ],
-  "version": "g+wUvflm"
+  "version": "YobwYyFK"
 };
