@@ -16,6 +16,10 @@ namespace WebNegocio.Interfaces.Pedidos
 
         Task ActualizarStockProducto(int productoId, int cantidadRestar);
 
+        Task AjustarStockAlEditarPedido(Pedido pedidoOriginal, Pedido nuevoPedido);
+
+        Task RestaurarStockProducto(int productoId, int cantidadSumar);
+
 
     }
 }

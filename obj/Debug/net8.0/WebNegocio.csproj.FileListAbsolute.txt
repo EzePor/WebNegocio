@@ -840,6 +840,7 @@ E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scop
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Commons\Productos\EditarProducto.razor.rz.scp.css
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Commons\Productos\NuevoProducto.razor.rz.scp.css
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Commons\Productos\Productos.razor.rz.scp.css
+E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Details\completadosestadopagado\PedidosCompletosDuo.razor.rz.scp.css
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Details\CrearPedidos\CrearPedidos.razor.rz.scp.css
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Details\CrearPedidos\EditarPedido.razor.rz.scp.css
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Details\CrearPedidos\FiltradoPedidos.razor.rz.scp.css
@@ -1062,4 +1063,3 @@ E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\WebN
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\refint\WebNegocio.dll
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\WebNegocio.pdb
 E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\ref\WebNegocio.dll
-E:\Software y BBDD\ProyectoFinal2024\WebNegocio\WebNegocio\obj\Debug\net8.0\scopedcss\Pages\Details\completadosestadopagado\PedidosCompletosDuo.razor.rz.scp.css

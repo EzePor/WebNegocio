@@ -17,6 +17,7 @@
 @inject SweetAlertService sweetAlert
 @inject ILogger<EditarPedido> Logger
 @inject NavigationManager NavigationManager
+@inject IPedidoService pedidoService
 
 
 
@@ -249,7 +250,15 @@ else
     {
         try
         {
-            // Actualizar los detalles del pedido
+            // Obtener el pedido original antes de realizar cambios
+            var pedidoOriginal = await pedidoService.GetByIdAsync(nuevoPedido.id);
+
+            if (pedidoOriginal == null)
+            {
+                throw new Exception("El pedido original no fue encontrado.");
+            }
+
+            // Actualizar los detalles del pedido para productos e impresiones
             nuevoPedido.DetallesProducto = nuevoPedido.DetallesProducto.Select(dp => new DetalleProducto
                 {
                     ProductoId = dp.ProductoId,
@@ -265,6 +274,9 @@ else
                     precioUnitario = di.precioUnitario,
                     eliminado = di.eliminado
                 }).ToList();
+
+            // Ajustar el stock de los productos antes de actualizar el pedido
+            await pedidoService.AjustarStockAlEditarPedido(pedidoOriginal, nuevoPedido);
 
             // Actualizar el pedido en lugar de agregar uno nuevo
             await pedidoService.UpdateAsync(nuevoPedido);
@@ -292,6 +304,9 @@ else
                 });
         }
     }
+
+
+
     // Agregar Producto al Pedido
     private void AgregarProducto()
     {

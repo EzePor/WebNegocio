@@ -122,6 +122,70 @@ namespace WebNegocio.Services
             }
         }
 
+        public async Task AjustarStockAlEditarPedido(Pedido pedidoOriginal, Pedido nuevoPedido)
+        {
+            // 1. Recorrer los productos originales para ver si alguno ha sido eliminado en el nuevo pedido
+            foreach (var detalleProductoOriginal in pedidoOriginal.DetallesProducto)
+            {
+                // Verificar si el producto original existe en el nuevo pedido
+                var detalleProductoNuevo = nuevoPedido.DetallesProducto.FirstOrDefault(dp => dp.ProductoId == detalleProductoOriginal.ProductoId);
+
+                // Si el producto no existe en el nuevo pedido, significa que fue eliminado, debemos devolver la cantidad al stock
+                if (detalleProductoNuevo == null)
+                {
+                    Console.WriteLine($"Producto eliminado. Sumando stock para Producto ID: {detalleProductoOriginal.ProductoId}, cantidad: {detalleProductoOriginal.cantidad}");
+
+                    // Sumar el stock del producto eliminado
+                    await ActualizarStockProducto(detalleProductoOriginal.ProductoId, -detalleProductoOriginal.cantidad);  // -cantidad porque queremos sumar
+                }
+                else
+                {
+                    // Si el producto sigue existiendo pero su cantidad ha cambiado, ajustamos la diferencia
+                    var diferenciaCantidad = detalleProductoNuevo.cantidad - detalleProductoOriginal.cantidad;
+
+                    if (diferenciaCantidad != 0)
+                    {
+                        Console.WriteLine($"Ajustando stock para Producto ID: {detalleProductoNuevo.ProductoId}, diferencia: {diferenciaCantidad}");
+
+                        // Si la diferencia es positiva, estamos pidiendo más y debemos reducir el stock
+                        // Si la diferencia es negativa, debemos devolver parte del stock
+                        await ActualizarStockProducto(detalleProductoNuevo.ProductoId, diferenciaCantidad);
+                    }
+                }
+            }
+
+            // 2. Recorrer los productos nuevos que no estaban en el pedido original (productos añadidos)
+            foreach (var detalleProductoNuevo in nuevoPedido.DetallesProducto)
+            {
+                var detalleProductoOriginal = pedidoOriginal.DetallesProducto.FirstOrDefault(dp => dp.ProductoId == detalleProductoNuevo.ProductoId);
+
+                // Si el producto es nuevo (no existe en el pedido original), ajustamos el stock restando la cantidad añadida
+                if (detalleProductoOriginal == null)
+                {
+                    Console.WriteLine($"Producto nuevo. Reduciendo stock para Producto ID: {detalleProductoNuevo.ProductoId}, cantidad: {detalleProductoNuevo.cantidad}");
+
+                    // Reducir el stock del nuevo producto
+                    await ActualizarStockProducto(detalleProductoNuevo.ProductoId, detalleProductoNuevo.cantidad);
+                }
+            }
+        }
+
+
+        public async Task RestaurarStockProducto(int productoId, int cantidadSumar)
+        {
+            var response = await client.PutAsJsonAsync($"productos/{productoId}/aumentarStock", cantidadSumar);
+
+            // Verificar si la respuesta fue exitosa
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error al restaurar el stock del producto ID: {productoId}, Mensaje: {errorMessage}");
+                throw new ApplicationException($"Error al restaurar el stock del producto ID: {productoId}, Mensaje: {errorMessage}");
+            }
+
+            Console.WriteLine($"Stock restaurado correctamente para producto ID: {productoId}");
+        }
+
     }
 
 }

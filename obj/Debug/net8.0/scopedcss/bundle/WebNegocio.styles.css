@@ -861,35 +861,32 @@ p[b-5yh36v7cg3] {
     color: white;
 }
 /* /Pages/Details/CrearPedidos/CrearPedidos.razor.rz.scp.css */
-
-.contenedor-botones[b-le78m9prkx]{
-    display:flex; 
-    justify-content:space-around;
+.contenedor-botones[b-le78m9prkx] {
+    display: flex;
+    justify-content: space-around;
 }
 
-.btn-ver[b-le78m9prkx]{
+.btn-ver[b-le78m9prkx] {
     background-color: yellowgreen;
-    margin-top:15px;
-    font-weight:bold;
-
-
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-.btn-ver:hover[b-le78m9prkx]{
-    background-color:darkgreen;
-    color:white;
-}
+    .btn-ver:hover[b-le78m9prkx] {
+        background-color: darkgreen;
+        color: white;
+    }
 
 .btn-guardar[b-le78m9prkx] {
-    background-color:springgreen;
+    background-color: springgreen;
     margin: 10px;
     font-weight: bold;
 }
 
-.btn-guardar:hover[b-le78m9prkx] {
-    background-color: darkolivegreen;
-    color: white;
-}
+    .btn-guardar:hover[b-le78m9prkx] {
+        background-color: darkolivegreen;
+        color: white;
+    }
 
 .btn-nuevo[b-le78m9prkx] {
     background-color: lime;
