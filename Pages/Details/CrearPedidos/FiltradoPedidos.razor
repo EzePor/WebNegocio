@@ -7,7 +7,7 @@
 @inject NavigationManager NavigationManager
 
 
-<h1>Resumen de Pedidos</h1>
+<h1>Filtrar Pedidos</h1>
 
 
     <!-- Filtro por Cliente -->
@@ -218,38 +218,50 @@ else
     private async Task EliminarPedido(int pedidoId)
     {
         try
+    {
+        SweetAlertResult respuesta = await sweetAlert.FireAsync(new SweetAlertOptions
         {
-            SweetAlertResult respuesta = await sweetAlert.FireAsync(new SweetAlertOptions
-                {
-                    Title = "Borrando Pedido",
-                    Text = $"¿Está seguro que desea borrar el pedido del cliente {clienteSeleccionado}",
-                    Icon = SweetAlertIcon.Warning,
-                    ShowCancelButton = true,
-                    ConfirmButtonText = "Si, quiero borrarlo!",
-                    CancelButtonText = "No, espera"
-                });
-            if (respuesta.IsConfirmed)
-            {
-                Console.WriteLine("Confirmación recibida. Eliminando el pedido..."); // Agrega este log
-                await pedidoService.DeleteAsync(pedidoId);
-                pedidos = await pedidoService.GetAllAsync();
-                StateHasChanged();
-            }
-            else
-            {
-                Console.WriteLine("Eliminación cancelada o fallida."); // Agrega este log para verificar si se cancela
-            }
-        }
-        catch (Exception ex)
+            Title = "Borrando Pedido",
+            Text = $"¿Está seguro que desea borrar el pedido del cliente {clienteSeleccionado}?",
+            Icon = SweetAlertIcon.Warning,
+            ShowCancelButton = true,
+            ConfirmButtonText = "Si, quiero borrarlo!",
+            CancelButtonText = "No, espera"
+        });
+
+        if (respuesta.IsConfirmed)
         {
-            // Manejo de errores, puedes mostrar una alerta de error
+            Console.WriteLine("Confirmación recibida. Eliminando el pedido..."); // Agrega este log
+            await pedidoService.DeleteAsync(pedidoId);
+
+            // Actualiza la lista de pedidos filtrados
+            pedidos = await pedidoService.GetAllAsync();
+            AplicarFiltros(); // Vuelve a aplicar los filtros para actualizar pedidosFiltrados
+
             await sweetAlert.FireAsync(new SweetAlertOptions
-                {
-                    Title = "Error",
-                    Text = $"No se pudo eliminar el pedido: {ex.Message}",
-                    Icon = SweetAlertIcon.Error
-                });
+            {
+                Title = "Éxito",
+                Text = "Pedido eliminado con éxito.",
+                Icon = SweetAlertIcon.Success
+            });
+
+            StateHasChanged(); // Actualiza la vista
         }
+        else
+        {
+            Console.WriteLine("Eliminación cancelada o fallida."); // Agrega este log para verificar si se cancela
+        }
+    }
+    catch (Exception ex)
+    {
+        // Manejo de errores, puedes mostrar una alerta de error
+        await sweetAlert.FireAsync(new SweetAlertOptions
+        {
+            Title = "Error",
+            Text = $"No se pudo eliminar el pedido: {ex.Message}",
+            Icon = SweetAlertIcon.Error
+        });
+    }
 
         
     }

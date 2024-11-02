@@ -7,6 +7,7 @@
 @inject IModoPagoService modoPagoService
 @inject IClienteService clienteService
 @inject SweetAlertService sweetAlert
+@inject ILogger<PedidosCompletos> Logger
 
 <h1>Pedidos Completados</h1>
 
@@ -121,40 +122,82 @@ else
 
     private async Task CambiarEstadoPedido(Pedido pedido, ChangeEventArgs e)
     {
+
         var nuevoEstado = e.Value.ToString();
-
-        if (nuevoEstado == EstadoPedidoEnum.Enviado.ToString())
+        if (Enum.TryParse(nuevoEstado, out EstadoPedidoEnum estadoPedidoEnum))
         {
-            pedido.estadoPedido = EstadoPedidoEnum.Enviado;
+            var pedidoOriginal = await pedidoService.GetByIdAsync(pedido.id);
+            if (pedidoOriginal != null)
+            {
+                try
+                {
+                    var pedidoActualizado = new Pedido
+                        {
+                            id = pedidoOriginal.id,
+                            ClienteId = pedidoOriginal.ClienteId,
+                            ModoPagoId = pedidoOriginal.ModoPagoId,
+                            estadoPedido = estadoPedidoEnum,
+                            FuePagado = pedidoOriginal.FuePagado,
+                            DetallesProducto = pedidoOriginal.DetallesProducto,
+                            DetallesImpresion = pedidoOriginal.DetallesImpresion
+                        };
 
-            try
-            {
-                await pedidoService.UpdatePedidoAsync(pedido);
-                await sweetAlert.FireAsync("Estado Actualizado", "El estado del pedido ha sido cambiado a Enviado", SweetAlertIcon.Success);
-                StateHasChanged();
+                    await pedidoService.UpdateAsync(pedidoActualizado);
+                    await sweetAlert.FireAsync("Estado Actualizado", "El estado del pedido ha sido cambiado.", SweetAlertIcon.Success);
+
+                    // Vuelve a cargar los pedidos
+                    await OnInitializedAsync();
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex, "Error al actualizar el estado del pedido");
+                    await sweetAlert.FireAsync("Error", $"Ocurrió un error al actualizar el estado del pedido: {ex.Message}", SweetAlertIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                await sweetAlert.FireAsync("Error", $"Ocurrió un error al actualizar el pedido: {ex.Message}", SweetAlertIcon.Error);
+                await sweetAlert.FireAsync("Error", "No se encontró el pedido original para actualizar.", SweetAlertIcon.Error);
             }
         }
+        
     }
 
     private async Task CambiarPago(Pedido pedido)
     {
-        pedido.FuePagado = !pedido.FuePagado; // Cambia el estado de pago
+        var pedidoOriginal = await pedidoService.GetByIdAsync(pedido.id);
+        if (pedidoOriginal != null)
+        {
+            pedidoOriginal.FuePagado = !pedidoOriginal.FuePagado;
 
-        try
-        {
-            await pedidoService.UpdatePedidoAsync(pedido); // Actualiza el pedido en el servidor
-            await sweetAlert.FireAsync("Estado de Pago Actualizado",
-                $"El estado de pago ha sido cambiado a {(pedido.FuePagado ? "Pagado" : "No Pagado")}",
-                SweetAlertIcon.Success);
-            StateHasChanged(); // Forzar actualización de la UI
+            try
+            {
+                await pedidoService.UpdateAsync(new Pedido
+                    {
+                        id = pedidoOriginal.id,
+                        ClienteId = pedidoOriginal.ClienteId,
+                        ModoPagoId = pedidoOriginal.ModoPagoId,
+                        estadoPedido = pedidoOriginal.estadoPedido,
+                        FuePagado = pedidoOriginal.FuePagado,
+                        DetallesProducto = pedidoOriginal.DetallesProducto.ToList(),
+                        DetallesImpresion = pedidoOriginal.DetallesImpresion.ToList()
+                    });
+
+                // Vuelve a cargar los pedidos
+                await OnInitializedAsync();
+
+                await sweetAlert.FireAsync("Estado de Pago Actualizado", $"El estado de pago ha sido cambiado a {(pedidoOriginal.FuePagado ? "Pagado" : "No Pagado")}", SweetAlertIcon.Success);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Error al actualizar el estado de pago");
+                await sweetAlert.FireAsync("Error", $"Ocurrió un error al actualizar el estado de pago: {ex.Message}", SweetAlertIcon.Error);
+            }
         }
-        catch (Exception ex)
+        else
         {
-            await sweetAlert.FireAsync("Error", $"Ocurrió un error al actualizar el estado de pago: {ex.Message}", SweetAlertIcon.Error);
+            await sweetAlert.FireAsync("Error", "No se encontró el pedido original para actualizar.", SweetAlertIcon.Error);
         }
     }
+
+    
 }

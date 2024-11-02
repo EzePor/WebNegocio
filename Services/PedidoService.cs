@@ -41,8 +41,38 @@ namespace WebNegocio.Services
 
         public async Task UpdatePedidoAsync(Pedido pedido)
         {
+            // Serializar el pedido a JSON para verificar su contenido antes de enviarlo
+            var pedidoJson = JsonSerializer.Serialize(pedido);
+            Console.WriteLine($"Actualizando pedido: {pedidoJson}");
+
             var response = await client.PutAsJsonAsync($"pedidos/{pedido.id}", pedido);
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error al actualizar el pedido: {errorMessage}");
+                throw new ApplicationException($"Error al actualizar el pedido: {errorMessage}");
+            }
+
+            // Verificar si la respuesta contiene contenido antes de intentar deserializarlo
+            var responseContent = await response.Content.ReadAsStringAsync();
+            if (string.IsNullOrWhiteSpace(responseContent))
+            {
+                Console.WriteLine("La respuesta del servidor está vacía.");
+                return;
+            }
+
+            // Verificar el contenido del pedido después de la actualización
+            try
+            {
+                var updatedPedido = JsonSerializer.Deserialize<Pedido>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                var updatedPedidoJson = JsonSerializer.Serialize(updatedPedido);
+                Console.WriteLine($"Pedido actualizado: {updatedPedidoJson}");
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"Error al deserializar la respuesta del servidor: {ex.Message}");
+                throw new ApplicationException($"Error al deserializar la respuesta del servidor: {ex.Message}");
+            }
         }
 
         // *** Nuevo método para ajustar el stock de productos al crear o actualizar un pedido ***

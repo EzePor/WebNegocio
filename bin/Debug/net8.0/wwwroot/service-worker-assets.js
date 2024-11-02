@@ -885,15 +885,15 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-c5l0qGuX7fDWeGGhoXC9YXqrVrr98rMtITPtjrsBorY=",
+      "hash": "sha256-rGXSB5DClRREcnMKlSq10jZHW9A81zD565DWc8vJPC4=",
       "url": "_framework\/WebNegocio.wasm"
     },
     {
-      "hash": "sha256-TO2tSG9oquK4ZBIeOdmH43ymQUN0VfxE2PW1yJlqC5w=",
+      "hash": "sha256-ORAXxN4Vj2Jl7qDwvneipZg0kWYjF8N4DEkYTQ758wM=",
       "url": "_framework\/WebNegocio.pdb"
     },
     {
-      "hash": "sha256-nOAXgZTydZUZezcBVLzSDguMXnI0ru0BMrfZC37cnAc=",
+      "hash": "sha256-9HAsiKClL+1fhUoGbRyaUNU+Oc99+2aL3vzG1dvFdmE=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1033,5 +1033,5 @@
       "url": "_content\/CurrieTechnologies.Razor.SweetAlert2\/wordpressAdminTheme.min.js"
     }
   ],
-  "version": "YobwYyFK"
+  "version": "djYSpvLd"
 };
