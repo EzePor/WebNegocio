@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "WebNegocio",
   "resources": {
-    "hash": "sha256-uW1sKyIssa+JBDvFgpzu9BeWcyghArCLcFC2IyfXFuA=",
+    "hash": "sha256-hF4hJSeEpZHs3EG+UruB+Gi9/xSMinHaw1BsL24V5bk=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.qfxywhl11c.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -209,10 +209,10 @@
       "mscorlib.wasm": "sha256-KvqZaNpjwhrOuzE4b4aMFsI+VUTyiWfoDI4zn4l9BM8=",
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
-      "WebNegocio.wasm": "sha256-6gjkEWUFXypHPN3WbfJ+TGisquhg9a8IVGSItE02GLQ="
+      "WebNegocio.wasm": "sha256-7WxgKFp8N+zeMS93alMmVUTO+AG7Ek3UxjtWAM9yTW8="
     },
     "pdb": {
-      "WebNegocio.pdb": "sha256-CMPaL84qkL/RUiGyklFXKbFCgotc8Qxys9viBG72VwI="
+      "WebNegocio.pdb": "sha256-Bs43tD1KxsDt2iZ3vEwpCZin0t+XEOesS6pjWmHXJIc="
     }
   },
   "cacheBootResources": true,

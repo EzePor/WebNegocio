@@ -319,9 +319,32 @@ else
     {
         try
         {
+            // Validar que la cantidad sea mayor a 0
+            if (cantidadProducto < 1)
+            {
+                sweetAlert.FireAsync(new SweetAlertOptions
+                    {
+                        Title = "Error",
+                        Text = $"Error, la cantidad del producto debe ser mayor a 0.",
+                        Icon = SweetAlertIcon.Error
+                    });
+                return;
+            }
             var producto = productos?.FirstOrDefault(p => p.id == productoSeleccionadoId);
             if (producto != null)
             {
+                // Verificar si el stock es suficiente
+                if (producto.stock < cantidadProducto)
+                {
+                    sweetAlert.FireAsync(new SweetAlertOptions
+                        {
+                            Title = "Stock insuficiente",
+                            Text = $"Solo hay {producto.stock} unidades disponibles de {producto.nombre}.",
+                            Icon = SweetAlertIcon.Warning
+                        });
+                    return; // No permite agregar el producto si no hay suficiente stock
+                }
+                // Crear el detalle del producto si el stock es suficiente
                 var detalleProducto = new DetalleProducto
                     {
                         ProductoId = producto.id,
