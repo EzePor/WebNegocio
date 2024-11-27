@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AFwE2YbFUy8=",
+  "dgSpecHash": "zx7M6ze9l/Y=",
   "success": true,
   "projectFilePath": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\WebNegocio.csproj",
   "expectedPackageFiles": [
@@ -29,12 +29,12 @@
     "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.jsinterop\\8.0.8\\microsoft.jsinterop.8.0.8.nupkg.sha512",
     "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.8\\microsoft.jsinterop.webassembly.8.0.8.nupkg.sha512",
-    "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.10\\microsoft.net.illink.tasks.8.0.10.nupkg.sha512",
-    "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\8.0.10\\microsoft.net.sdk.webassembly.pack.8.0.10.nupkg.sha512",
+    "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.11\\microsoft.net.illink.tasks.8.0.11.nupkg.sha512",
+    "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\8.0.11\\microsoft.net.sdk.webassembly.pack.8.0.11.nupkg.sha512",
     "C:\\Users\\Ezequiel\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\Ezequiel\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\Ezequiel\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
-    "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.10.nupkg.sha512"
+    "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.11.nupkg.sha512"
   ],
   "logs": []
 }

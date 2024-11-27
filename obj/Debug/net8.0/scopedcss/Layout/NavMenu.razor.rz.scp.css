@@ -48,7 +48,9 @@
 .bi-cart3[b-zp64rcn9qx],
 .bi-cart4[b-zp64rcn9qx],
 .bi-cart-fill[b-zp64rcn9qx],
-.bi-house-door[b-zp64rcn9qx] {
+.bi-house-door[b-zp64rcn9qx],
+.bi-info-circle[b-zp64rcn9qx],
+.bi-person-circle[b-zp64rcn9qx]{
     margin-bottom: -5px;
     width: 9px;
     height: 9px;
@@ -73,6 +75,11 @@
 .nav-item[b-zp64rcn9qx] {
     font-size: 0.9rem;
     padding-bottom: 1.5rem;
+}
+
+.contenedor-nombre[b-zp64rcn9qx] {
+    margin: 10px;
+   
 }
 
 .navlink[b-zp64rcn9qx] {

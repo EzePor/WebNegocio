@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.logincontainer {
+    background-color: #1c1c1c;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    margin:auto;
+}
+
+    .login-container h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.btn-google {
+    background-color: #4285f4;
+}
+
+    .btn-google img, .btn-facebook img {
+        width: 20px;
+        margin-right: 8px;
+    }
+
+.btn-facebook {
+    background-color: #3b5998;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    color: #777;
+}
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background-color: #777;
+        margin: 0 0.5rem;
+    }
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+    .form-group label {
+        display: block;
+        font-size: 0.9rem;
+        color: #aaa;
+        margin-bottom: 0.5rem;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.register-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+    .register-link .btn-register {
+        background: none;
+        color: #ff4b2b;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-decoration: underline;
+    }
+
+.btn-forgot-password {
+    margin-top: 0.5rem;
+    color: #aaa;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.btn-logout {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4b2b;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}

@@ -111,6 +111,9 @@ else
         {
             await clienteService.DeleteAsync(cliente.id);
             clientes = await clienteService.GetAllAsync();
+            StateHasChanged();
         }
+    
+
     }
 }

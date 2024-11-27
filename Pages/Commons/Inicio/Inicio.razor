@@ -1,6 +1,10 @@
 ﻿@page "/"
 @* Página de inicio con carrusel *@
 
+@inject IJSRuntime JSRuntime
+
+
+
 <div class="container mt-5">
     <div class="row">
         <div class="col text-center">
@@ -58,4 +62,27 @@
     </div>
 
 </div>
+
+@if (!string.IsNullOrEmpty(nombreCompleto))
+{
+    <div class="contenedor-bienvenido">
+
+        <h3>Bienvenido/a ...</h3>
+
+        <p>Hola, @nombreCompleto</p>
+
+    </div>
+}
+
+@code {
+    private string nombreCompleto;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var nombreCompleto = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "userDisplayName");
+        this.nombreCompleto = nombreCompleto;
+    }
+}
+
+
 

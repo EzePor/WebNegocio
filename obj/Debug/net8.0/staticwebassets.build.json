@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i9mYm6CS4vND8Mou+EM0KyB0uTet2j8thUwQTa/896o=",
+  "Hash": "wl7CEEU6evmsl0Q6cmIGMjLwrpfz6i5U/f5hbJrAmlw=",
   "Source": "WebNegocio",
   "BasePath": "/",
   "Mode": "Root",
@@ -736,7 +736,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\dotnet.js"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
@@ -755,15 +755,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js.map"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\dotnet.js.map"
     },
     {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.qfxywhl11c.js",
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.11.b8xn00fmph.js",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
       "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.10.qfxywhl11c.js",
+      "RelativePath": "_framework/dotnet.native.8.0.11.b8xn00fmph.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -774,7 +774,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.js"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\dotnet.native.js"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
@@ -793,15 +793,15 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
     },
     {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.cd53u9ax19.js",
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.11.ufyj4mjyon.js",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
       "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.10.cd53u9ax19.js",
+      "RelativePath": "_framework/dotnet.runtime.8.0.11.ufyj4mjyon.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -812,7 +812,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
@@ -831,7 +831,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
@@ -850,7 +850,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
@@ -869,7 +869,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
@@ -888,7 +888,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+      "OriginalItemSpec": "C:\\Users\\Ezequiel\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.11\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.wasm",
@@ -5014,44 +5014,6 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Text.Encoding.CodePages.wasm"
     },
     {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\3o30cg6y0z.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
-    },
-    {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\3ra1lvpnk6.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
-    },
-    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\42ell8ijej.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -5126,25 +5088,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Security.Cryptography.Primitives.wasm"
-    },
-    {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\4in3mxiodq.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\4sunzzjwcs.gz",
@@ -5316,6 +5259,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.ComponentModel.Primitives.wasm"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\5nvo0at03z.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\5oi6qfubv0.gz",
@@ -5717,25 +5679,6 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Configuration.Abstractions.wasm"
     },
     {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\9bl9dq10b2.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
-    },
-    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\9faa2dsgds.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -6021,6 +5964,25 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Reflection.Primitives.wasm"
     },
     {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\b8xn00fmph.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.8.0.11.b8xn00fmph.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.11.b8xn00fmph.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.11.b8xn00fmph.js"
+    },
+    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\bb5g303zhz.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -6228,25 +6190,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.IO.Pipes.AccessControl.wasm"
-    },
-    {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\cd53u9ax19.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.10.cd53u9ax19.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.cd53u9ax19.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.cd53u9ax19.js"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\ci7e6ykm31.gz",
@@ -6781,6 +6724,25 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.IO.FileSystem.Watcher.wasm"
     },
     {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\jlgovdoji8.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
+    },
+    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\jn8ehq73c8.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -7009,6 +6971,25 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.Loader.wasm"
     },
     {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\mznt9kc835.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
+    },
+    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\nit10n0pi4.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -7159,6 +7140,44 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Formats.Tar.wasm"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\o9yp3v2ds7.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\odtanzbihw.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\orux0tkyov.gz",
@@ -7370,25 +7389,6 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Linq.Parallel.wasm"
     },
     {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\qfxywhl11c.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.10.qfxywhl11c.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.qfxywhl11c.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.qfxywhl11c.js"
-    },
-    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\qnvbl0ljaf.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -7406,6 +7406,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Text.Encodings.Web.wasm"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\qwmhq9l6ig.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\qxqd18m9mr.gz",
@@ -7807,25 +7826,6 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Net.Mail.wasm"
     },
     {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\toko7xf7gc.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
-    },
-    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\trlekuphpm.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -7862,6 +7862,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.wasm"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\ufyj4mjyon.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.8.0.11.ufyj4mjyon.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.11.ufyj4mjyon.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.11.ufyj4mjyon.js"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\uga6otthxy.gz",
@@ -7976,25 +7995,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.FileProviders.Abstractions.wasm"
-    },
-    {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\v8r321sir5.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\vl5khrpww4.gz",
@@ -8130,25 +8130,6 @@
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.wasm"
     },
     {
-      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\xaj9rr8xvz.gz",
-      "SourceId": "WebNegocio",
-      "SourceType": "Computed",
-      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
-    },
-    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\xf16lqm76z.gz",
       "SourceId": "WebNegocio",
       "SourceType": "Computed",
@@ -8223,6 +8204,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.IO.IsolatedStorage.wasm"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\xx361bov6k.gz",
+      "SourceId": "WebNegocio",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\obj\\Debug\\net8.0\\compressed\\y82h2t7w85.gz",
@@ -8662,6 +8662,82 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\Gestión de Negocio.png",
+      "SourceId": "WebNegocio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "Gestión de Negocio.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Gestión de Negocio.png"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\gestion192.png",
+      "SourceId": "WebNegocio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "gestion192.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\gestion192.png"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\gestion500.png",
+      "SourceId": "WebNegocio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "gestion500.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\gestion500.png"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\gn500.png",
+      "SourceId": "WebNegocio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "gn500.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\gn500.png"
+    },
+    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\icon-192.png",
       "SourceId": "WebNegocio",
       "SourceType": "Discovered",
@@ -8852,6 +8928,44 @@
       "OriginalItemSpec": "wwwroot\\img\\carrusel\\imagen8.jpg"
     },
     {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\logos\\googleicono.png",
+      "SourceId": "WebNegocio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "img/logos/googleicono.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logos\\googleicono.png"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\logos\\googlelogo.png",
+      "SourceId": "WebNegocio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "img/logos/googlelogo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logos\\googlelogo.png"
+    },
+    {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\index.html",
       "SourceId": "WebNegocio",
       "SourceType": "Discovered",
@@ -8869,6 +8983,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\js\\firebaseAuth.js",
+      "SourceId": "WebNegocio",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "js/firebaseAuth.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\firebaseAuth.js"
     },
     {
       "Identity": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\manifest.webmanifest",

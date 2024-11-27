@@ -28,7 +28,7 @@
 
 <PageTitle>Gestión de Pedidos</PageTitle>
 
-<h1>Crear o Editar Pedido</h1>
+<h1>Crear Pedido</h1>
 
 @if (clientes == null || productos == null || impresiones == null || modosPago == null || nuevoPedido == null)
 {
@@ -227,8 +227,8 @@ else
     {
         try
         {
-            clientes = await clienteService.GetAllAsync();
-            productos = await productoService.GetAllAsync();
+            clientes = (await clienteService.GetAllAsync()).OrderBy(p => p.apellidoNombre).ToList();
+            productos = (await productoService.GetAllAsync()).OrderBy(p => p.nombre).ToList();
             impresiones = await impresionService.GetAllAsync();
             modosPago = await modopagoService.GetAllAsync();
         }

@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    
+}
+
+.logincontainer {
+    background-color: #1c1c1c;
+    padding: 6rem;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+.btn-registrarse {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ff6a00, #ff0000);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.form-group{
+    margin:10px;
+}

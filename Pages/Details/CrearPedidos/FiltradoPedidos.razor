@@ -122,14 +122,14 @@ else
                                     <ul>
                                         @foreach (var producto in pedido.DetallesProducto)
                                         {
-                                            <li>Producto ID: @producto.producto?.nombre - Cantidad: @producto.cantidad - Subtotal: $ @producto.TotalF</li>
+                                            <li>Producto: @producto.producto?.nombre - Cantidad: @producto.cantidad - Subtotal: $ @producto.TotalF</li>
                                         }
                                     </ul>
                                     <li><strong>Impresiones:</strong></li>
                                     <ul>
                                         @foreach (var impresion in pedido.DetallesImpresion)
                                         {
-                                            <li>Impresión ID: @impresion.impresion?.tamanio - Cantidad: @impresion.cantidad - Subtotal: $ @impresion.TotalF</li>
+                                            <li>Impresión: @impresion.impresion?.tamanio - Cantidad: @impresion.cantidad - Subtotal: $ @impresion.TotalF</li>
                                         }
                                     </ul>
                                 </ul>

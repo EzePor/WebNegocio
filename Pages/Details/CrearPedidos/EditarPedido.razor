@@ -226,7 +226,7 @@ else
         try
         {
             clientes = await clienteService.GetAllAsync();
-            productos = await productoService.GetAllAsync();
+            productos = (await productoService.GetAllAsync()).OrderBy(p => p.nombre).ToList();
             impresiones = await impresionService.GetAllAsync();
             modosPago = await modopagoService.GetAllAsync();
 

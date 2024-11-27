@@ -8,6 +8,7 @@ using WebNegocio.Interfaces.resumenPedido;
 using WebNegocio.Models.Commos;
 using WebNegocio.Models.Details;
 using WebNegocio.Services;
+using WebNegocio.Services.Login;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -44,6 +45,9 @@ builder.Services.AddScoped<SweetAlertService>();
 
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<FileService>();
+
+builder.Services.AddScoped<FirebaseAuthService>();
+
 
 
 

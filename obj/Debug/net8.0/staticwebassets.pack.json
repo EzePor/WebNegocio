@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\service-worker.js"
     },
     {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\Gestión de Negocio.png",
+      "PackagePath": "staticwebassets\\Gestión de Negocio.png"
+    },
+    {
       "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\appsettings.json",
       "PackagePath": "staticwebassets\\appsettings.json"
     },
@@ -39,6 +43,18 @@
     {
       "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\gestion192.png",
+      "PackagePath": "staticwebassets\\gestion192.png"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\gestion500.png",
+      "PackagePath": "staticwebassets\\gestion500.png"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\gn500.png",
+      "PackagePath": "staticwebassets\\gn500.png"
     },
     {
       "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\icon-192.png",
@@ -81,8 +97,20 @@
       "PackagePath": "staticwebassets\\img\\carrusel\\imagen8.jpg"
     },
     {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\logos\\googleicono.png",
+      "PackagePath": "staticwebassets\\img\\logos\\googleicono.png"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\img\\logos\\googlelogo.png",
+      "PackagePath": "staticwebassets\\img\\logos\\googlelogo.png"
+    },
+    {
       "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\js\\firebaseAuth.js",
+      "PackagePath": "staticwebassets\\js\\firebaseAuth.js"
     },
     {
       "Id": "E:\\Software y BBDD\\ProyectoFinal2024\\WebNegocio\\WebNegocio\\wwwroot\\manifest.webmanifest",

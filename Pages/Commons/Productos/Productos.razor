@@ -101,6 +101,7 @@ else
         {
             await productoService.DeleteAsync(producto.id);
             productos = await productoService.GetAllAsync();
+            StateHasChanged(); 
         }
     }
 }

@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebNegocio</title>
+    <title>Gestión de Negocio</title>
     <base href="/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css" />
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="gn500.png" />
     <link href="WebNegocio.styles.css" rel="stylesheet" />
     <link href="manifest.webmanifest" rel="manifest" />
-    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="gestion192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="gestion192.png" />
 
    
 
@@ -39,18 +39,131 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <!-- Firebase  -->
+    <!--<script src="js/firebaseAuth.js"></script>-->
+
+
+    
+
+    <!-- Configuración de Firebase -->
+    <script>
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyA_UONSAAM8OrTELLhXIL8DmyW-DNi45Ho",
+            authDomain: "gestionnegocio-f17f0.firebaseapp.com",
+            projectId: "gestionnegocio-f17f0",
+            storageBucket: "gestionnegocio-f17f0.firebasestorage.app",
+            messagingSenderId: "671733944070",
+            appId: "1:671733944070:web:5458e5dba9523733995887",
+            measurementId: "G-RFP074C17T"
+        };
+
+        // Inicializar Firebase
+        if (!firebase.apps?.length) {
+            firebase.initializeApp(firebaseConfig);
+        } else {
+            firebase.app();
+        }
+
+        window.firebaseAuth = {
+            registerWithEmailPassword: async function (email, password, nombre , apellido) {
+               
+                try {
+                    const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+
+                    // Actualiza el perfil del usuario
+                    await userCredential.user.updateProfile({
+                        displayName: `${nombre} ${apellido}` // Guarda nombre y apellido juntos
+                    });
+
+                    // Enviar email de verificación
+                    await userCredential.user.sendEmailVerification({
+                        url: window.location.origin + '/login' // URL de redirección después de verificar
+                    });
+                    await firebase.auth().signOut(); // Cerrar sesión inmediatamente
+                    return {
+                        userId: userCredential.user.uid,
+                        message: "verification-email-sent"
+                    };
+                } catch (error) {
+                    console.error("Error en el registro:", error);
+                    throw error.message;
+                }
+            },
+
+            signInWithEmailPassword: async function (email, password) {
+                try {
+                    const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+                    const user = userCredential.user;
+
+                    if (!user.emailVerified) {
+                        await firebase.auth().signOut(); // Cerrar sesión si el email no está verificado
+                        throw new Error("email-not-verified");
+                    }
+
+                    // Guarda el nombre del usuario en localStorage para usarlo en la interfaz
+                    localStorage.setItem("userDisplayName", user.displayName);
+
+                    return {
+                        userId: user.uid,
+                        displayName: user.displayName
+                    };
+                } catch (error) {
+                    console.error("Error en el login:", error);
+                    throw error.message;
+                }
+            },
+
+            resendVerificationEmail: async function (email, password) {
+                try {
+                    const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+                    await userCredential.user.sendEmailVerification({
+                        url: window.location.origin + '/login'
+                    });
+                    await firebase.auth().signOut();
+                    return true;
+                } catch (error) {
+                    console.error("Error al reenviar email:", error);
+                    throw error.message;
+                }
+            },
+
+            signOut: async function () {
+                try {
+                    await firebase.auth().signOut();
+                    return true;
+                } catch (error) {
+                    console.error("Error en el logout:", error);
+                    throw error.message;
+                }
+            }
+        };
+
+        window.localStorageHelper = {
+            setItem: function (key, value) {
+                localStorage.setItem(key, value);
+            },
+            getItem: function (key) {
+                return localStorage.getItem(key);
+            },
+            removeItem: function (key) {
+                localStorage.removeItem(key);
+            }
+        };
+    </script>
+
+
     <!-- SweetAlert2 Script -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="_content/CurrieTechnologies.Razor.SweetAlert2/sweetAlert2.min.js"></script>
 
 
-    
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 
 </body>
 

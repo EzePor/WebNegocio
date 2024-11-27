@@ -1,4 +1,10 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿
+@inject NavigationManager NavigationManager
+@inject FirebaseAuthService AuthService
+@inject IJSRuntime JSRuntime
+
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Gestión de Negocio</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -14,6 +20,9 @@
                 <span class="bi bi-house-door" aria-hidden="true"></span> INICIO
             </NavLink>
         </div>
+
+
+@if(isAuthenticated){
         <div class="nav-link ">
             <NavLink class="navlink" href="clientes">
                 <span class="bi bi-person-square" aria-hidden="true"></span>CLIENTE
@@ -62,16 +71,37 @@
                 <span class="bi bi-cart-fill" aria-hidden="true"></span>PEDIDO COMPLETADOS
             </NavLink>
         </div>
+           <div class="contenedor-nombre">
+                <div class="">
+                    <span style="border-block-end:dashed">Usuario conectado: </span>
+                </div>
+                <div class="">
+                    <span style="color: lightgreen;font-size:25px; font:900; margin:auto;">@nombreCompleto</span>
+                </div>
+           </div>
+}
         <div class="nav-link">
             <NavLink class="navlink" href="acercade">
-                <span class="bi bi-cart-fill" aria-hidden="true"></span>INFORMACIÓN
+                <span class="bi bi-info-circle" aria-hidden="true"></span>INFORMACIÓN
             </NavLink>
         </div>
+        <div class="nav-link">
+            <NavLink class="navlink" href="@(isAuthenticated ? "" : "login")" @onclick="@(isAuthenticated ? Logout : null)">
+                <span class="bi bi-person-circle" aria-hidden="true"></span> @textoLogin
+            </NavLink>
+        </div>
+
+        
+
     </nav>
+    
 </div>
 
 @code {
     private bool collapseNavMenu = true;
+    private bool isAuthenticated = false;
+    private string nombreCompleto = string.Empty;
+    private string textoLogin => isAuthenticated ? "CERRAR SESIÓN" : "INICIAR SESIÓN";
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -79,4 +109,42 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    protected override async Task OnInitializedAsync()
+    {
+        isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (isAuthenticated)
+        {
+            var displayName = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "userDisplayName");
+            nombreCompleto = !string.IsNullOrEmpty(displayName) ? displayName : "Usuario desconocido";
+        }
+        AuthService.OnChangeLogin += ChequeoEstadoLogin;
+    }
+
+    public async void Logout()
+    {
+        await AuthService.LogoutAsync();
+        // Limpia los datos del localStorage.
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "userDisplayName");
+
+        // Actualiza los estados para reflejar el logout.
+        nombreCompleto = string.Empty;
+        isAuthenticated = false;
+
+        // Redirige al usuario a la página de inicio o login.
+        NavigationManager.NavigateTo("login");
+        StateHasChanged();
+    }
+
+    public async void ChequeoEstadoLogin()
+    {
+        isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (isAuthenticated)
+        {
+            var displayName = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "userDisplayName");
+            nombreCompleto = !string.IsNullOrEmpty(displayName) ? displayName : "Usuario desconocido";
+        }
+        StateHasChanged();
+    }
+
 }

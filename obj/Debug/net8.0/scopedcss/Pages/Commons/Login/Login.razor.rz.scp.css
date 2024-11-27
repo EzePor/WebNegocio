@@ -1,0 +1,135 @@
+body[b-bbdy04o7vf] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.logincontainer[b-bbdy04o7vf] {
+    background-color: #1c1c1c;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    margin:auto;
+}
+
+    .login-container h2[b-bbdy04o7vf] {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+.btn-google[b-bbdy04o7vf] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.btn-google[b-bbdy04o7vf] {
+    background-color: #4285f4;
+}
+
+    .btn-google img[b-bbdy04o7vf], .btn-facebook img[b-bbdy04o7vf] {
+        width: 20px;
+        margin-right: 8px;
+    }
+
+.btn-facebook[b-bbdy04o7vf] {
+    background-color: #3b5998;
+}
+
+.divider[b-bbdy04o7vf] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    color: #777;
+}
+
+    .divider[b-bbdy04o7vf]::before,
+    .divider[b-bbdy04o7vf]::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background-color: #777;
+        margin: 0 0.5rem;
+    }
+
+.form-group[b-bbdy04o7vf] {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+    .form-group label[b-bbdy04o7vf] {
+        display: block;
+        font-size: 0.9rem;
+        color: #aaa;
+        margin-bottom: 0.5rem;
+    }
+
+.form-control[b-bbdy04o7vf] {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-login[b-bbdy04o7vf] {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.register-link[b-bbdy04o7vf] {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+    .register-link .btn-register[b-bbdy04o7vf] {
+        background: none;
+        color: #ff4b2b;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-decoration: underline;
+    }
+
+.btn-forgot-password[b-bbdy04o7vf] {
+    margin-top: 0.5rem;
+    color: #aaa;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.btn-logout[b-bbdy04o7vf] {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4b2b;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}

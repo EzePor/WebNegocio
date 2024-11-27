@@ -44,5 +44,10 @@ p {
 
 .carousel-inner img {
     object-fit: cover;
-    height: 350px; /* Ajusta la altura según tus necesidades */
+    height: 450px; /* Ajusta la altura según tus necesidades */
+}
+
+.contenedor-bienvenido {
+    text-align: center;
+    margin:30px ;
 }

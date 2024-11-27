@@ -26,16 +26,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/_Imports.razor]
@@ -93,6 +85,14 @@ build_metadata.AdditionalFiles.CssScope = b-5vyov1zohq
 [E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Inicio/Inicio.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xJbmljaW9cSW5pY2lvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-785qnmpo8p
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Login/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xMb2dpblxMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-bbdy04o7vf
+
+[E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/Login/Registrarse.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xMb2dpblxSZWdpc3RyYXJzZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-bwc2pel5yg
 
 [E:/Software y BBDD/ProyectoFinal2024/WebNegocio/WebNegocio/Pages/Commons/ModosPagos/EditarModoPago.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbW9uc1xNb2Rvc1BhZ29zXEVkaXRhck1vZG9QYWdvLnJhem9y

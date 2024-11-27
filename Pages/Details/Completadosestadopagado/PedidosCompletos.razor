@@ -59,7 +59,9 @@ else
                                 <select @onchange="@(e => CambiarEstadoPedido(pedido, e))" class="form-select">
                                     @foreach (var estado in Enum.GetValues(typeof(EstadoPedidoEnum)).Cast<EstadoPedidoEnum>())
                                     {
-                                        <option value="@estado.ToString()" selected="@(pedido.estadoPedido == estado)">@estado.ToString()</option>
+                                        <option value="@estado.ToString()" selected="@((pedido.estadoPedido == estado) ? "selected" : null)">
+                                            @estado.ToString()
+                                        </option>
                                     }
                                 </select>
                             </td>
@@ -122,15 +124,16 @@ else
 
     private async Task CambiarEstadoPedido(Pedido pedido, ChangeEventArgs e)
     {
-
         var nuevoEstado = e.Value.ToString();
         if (Enum.TryParse(nuevoEstado, out EstadoPedidoEnum estadoPedidoEnum))
         {
+            // Obtiene el pedido original
             var pedidoOriginal = await pedidoService.GetByIdAsync(pedido.id);
             if (pedidoOriginal != null)
             {
                 try
                 {
+                    // Crea una copia con el nuevo estado
                     var pedidoActualizado = new Pedido
                         {
                             id = pedidoOriginal.id,
@@ -142,11 +145,20 @@ else
                             DetallesImpresion = pedidoOriginal.DetallesImpresion
                         };
 
+                    // Actualiza el pedido en el servicio
                     await pedidoService.UpdateAsync(pedidoActualizado);
                     await sweetAlert.FireAsync("Estado Actualizado", "El estado del pedido ha sido cambiado.", SweetAlertIcon.Success);
 
-                    // Vuelve a cargar los pedidos
-                    await OnInitializedAsync();
+                    // Actualiza la lista local
+                    if (estadoPedidoEnum != EstadoPedidoEnum.Completado)
+                    {
+                        pedidosCompletados = pedidosCompletados
+                            .Where(p => p.id != pedidoActualizado.id)
+                            .ToList(); // Actualiza la lista excluyendo el pedido modificado
+                    }
+
+                    // Actualiza la vista manualmente
+                    RefrescarVista();
                 }
                 catch (Exception ex)
                 {
@@ -160,6 +172,11 @@ else
             }
         }
         
+    }
+    private void RefrescarVista()
+    {
+        pedidosCompletados = pedidosCompletados.ToList(); // Reasignación para disparar el renderizado
+        StateHasChanged();
     }
 
     private async Task CambiarPago(Pedido pedido)

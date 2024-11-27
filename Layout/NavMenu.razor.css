@@ -48,7 +48,9 @@
 .bi-cart3,
 .bi-cart4,
 .bi-cart-fill,
-.bi-house-door {
+.bi-house-door,
+.bi-info-circle,
+.bi-person-circle{
     margin-bottom: -5px;
     width: 9px;
     height: 9px;
@@ -73,6 +75,11 @@
 .nav-item {
     font-size: 0.9rem;
     padding-bottom: 1.5rem;
+}
+
+.contenedor-nombre {
+    margin: 10px;
+   
 }
 
 .navlink {
